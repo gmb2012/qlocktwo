@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+
+
+body{
+    font-family:'Josefin Sans', Arial, "Trebuchet MS", sans-serif;
+    background-color:black;
+    color: white;
+    font-size: large;
+    padding: 25px;
+}
+
+.qlock-container {
+    width: 35%;
+}
+
+.qlock-letter {
+    float: left;
+    width: 9%;
+    text-align: center;
+    font-size: 2em;
+}
