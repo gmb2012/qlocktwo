@@ -6,16 +6,22 @@ body{
     background-color:black;
     color: white;
     font-size: large;
-    padding: 25px;
+    padding: 35px;
 }
 
-.qlock-container {
-    width: 35%;
-}
-
+/* QLOCK */
 .qlock-letter {
     float: left;
     width: 9%;
     text-align: center;
+    font-size: 2.3em;
+}
+
+/* ENVIRONMENT DATA */
+.environment {
+    margin-bottom: 2em;
+}
+
+.wi-2x {
     font-size: 2em;
 }
