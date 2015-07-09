@@ -4,7 +4,7 @@
 body{
     font-family:'Josefin Sans', Arial, "Trebuchet MS", sans-serif;
     background-color:black;
-    color: white;
+    color: #555555;
     font-size: large;
     padding: 35px;
 }
@@ -17,6 +17,11 @@ body{
     font-size: 2.3em;
 }
 
+.qlock-active {
+    color: white;
+    text-shadow: 0 0 20px #999999;
+}
+
 /* ENVIRONMENT DATA */
 .environment {
     margin-bottom: 2em;
@@ -24,4 +29,8 @@ body{
 
 .wi-2x {
     font-size: 2em;
+}
+
+.environment-data {
+    font-size: 1.2em;
 }
