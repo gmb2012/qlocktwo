@@ -4,9 +4,14 @@
 body{
     font-family:'Josefin Sans', Arial, "Trebuchet MS", sans-serif;
     background-color:black;
-    color: #555555;
+    color: #333333;
     font-size: large;
     padding: 35px;
+}
+
+.vertical-separator {
+    height: 640px;
+    border-right: 1px solid #333333;
 }
 
 /* QLOCK */
@@ -25,6 +30,11 @@ body{
 /* ENVIRONMENT DATA */
 .environment {
     margin-bottom: 2em;
+    color: #666666;
+}
+
+.wi-1_2x {
+    font-size: 1.2em;
 }
 
 .wi-2x {
@@ -33,4 +43,10 @@ body{
 
 .environment-data {
     font-size: 1.2em;
+}
+
+.environment-label {
+    padding-right: 5px;
+    text-align: center;
+    line-height: 40px;
 }

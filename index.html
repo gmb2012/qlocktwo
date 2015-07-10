@@ -28,7 +28,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" >
             <div class="col-md-7 col-xs-7">
                 <div class="row">
                     <div class="col-md-12 col-xs-12">
@@ -178,27 +178,36 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-xs-3 pull-right">
+
+
+            <div class="col-md-1 col-xs-1">
+                <div class="col-md-6 col-xs-6 vertical-separator">
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-4">
                 <div class="row environment">
                     <div class="col-md-2 col-xs-2">
                         <i class="fa fa-home fa-2x"></i>
                     </div>
                     <div class="col-md-10 col-xs-10">
                         <div class="row">
-                            <div class="col-md-1 col-xs-1">
+                            <div class="col-md-2 col-xs-2 environment-label">
                                 <i class="wi wi-thermometer wi-2x"></i>
                             </div>
-                            <div class="col-md-10 col-xs-10 environment-data">
+                            <div class="col-md-4 col-xs-4 environment-data">
                                 34° C
+                            </div>
+                            <div class="col-md-2 col-xs-2 environment-label">
+                                <i class="wi wi-sprinkles wi-2x"></i>
+                            </div>
+                            <div class="col-md-4 col-xs-4 environment-data">
+                                50%
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-1 col-xs-1">
-                                <i class="wi wi-sprinkles wi-2x"></i>
-                            </div>
-                            <div class="col-md-10 col-xs-10 environment-data">
-                                50%
-                            </div>
+                            <canvas id="interiorChart" class="col-md-12 col-xs-12"></canvas>
                         </div>
 
                     </div>
@@ -208,6 +217,37 @@
                         <i class="fa fa-tree fa-2x"></i>
                     </div>
                     <div class="col-md-10 col-xs-10">
+                        <div class="row">
+                            <div class="col-md-2 col-xs-2 environment-label">
+                                <i class="wi wi-thermometer wi-2x"></i>
+                            </div>
+                            <div class="col-md-4 col-xs-4 environment-data">
+                                34° C
+                            </div>
+                            <div class="col-md-2 col-xs-2 environment-label">
+                                <i class="wi wi-sprinkles wi-2x"></i>
+                            </div>
+                            <div class="col-md-4 col-xs-4 environment-data">
+                                50%
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-xs-2 environment-label">
+                                <i class="wi wi-sunrise wi-1_2x"></i>
+                            </div>
+                            <div class="col-md-4 col-xs-4 environment-data">
+                                07:00
+                            </div>
+                            <div class="col-md-2 col-xs-2 environment-label">
+                                <i class="wi wi-sunset wi-1_2x"></i>
+                            </div>
+                            <div class="col-md-4 col-xs-4 environment-data">
+                                21:50
+                            </div>
+                        </div>
+
+
+
                         <div>Temperature</div>
                         <div>Humidity</div>
                         <div>Current weather</div>
@@ -222,5 +262,43 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="javascript/Chart.min.js"></script>
+
+    <script language="JavaScript">
+        var options = {
+            pointDot : false
+        }
+
+        var data = {
+            labels: ["03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00", "00:00"],
+            datasets: [
+                {
+                    label: "My First dataset",
+                    fillColor: "#000",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "#000",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "#000",
+                    data: [23, 24, 25, 25, 25, 25, 25, 26]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [40, 40, 38, 37, 43, 47, 50, 50]
+                }
+            ]
+        };
+
+        var myLineChart = new Chart($("#interiorChart").get(0).getContext("2d")).Line(data, options);
+
+    </script>
 </body>
 </html>

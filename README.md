@@ -9,6 +9,10 @@
 Temperatur aussen und inner inkl. trend und kleinem diagramm
 Feuchtichkeit aussen und innen
 
+Sonnenaufgang & Untergang
+
+Mond
+
 wettervorhersage
 
 # Resources
