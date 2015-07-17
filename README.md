@@ -1,13 +1,12 @@
 # TODO
-- height and style of graph
-- Basic Template
-- Temprature etc right
-- Diagrams right
+- make the clock work
 - do it in react
 - more views
 - check for new font
 - Wind speed miles per hour to kmh
 - Moonphase from current
+- use requireJS
+- sync time via webservice
 
 Temperatur aussen und inner inkl. trend und kleinem diagramm
 Feuchtichkeit aussen und innen
