@@ -18,17 +18,8 @@
     <link rel="stylesheet" href="css/weather-icons.css">
     <link rel="stylesheet" href="css/custom.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- REACT -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- require js -->
+    <script data-main="javascript/app" src="javascript/lib/require.js"></script>
 </head>
 
 <body>
@@ -247,58 +238,9 @@
 
 
                     </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <!-- Chart.js -->
-    <script src="javascript/Chart.min.js"></script>
-
-    <script language="JavaScript">
-        var options = {
-            pointDot : false
-        }
-
-        var data = {
-            labels: ["03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00", "00:00"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fillColor: "#000",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "#000",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "#000",
-                    data: [23, 24, 25, 25, 25, 25, 25, 26]
-                },
-                {
-                    label: "My Second dataset",
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [40, 40, 38, 37, 43, 47, 50, 50]
-                }
-            ]
-        };
-
-        var myLineChart = new Chart($("#interiorChart").get(0).getContext("2d")).Line(data, options);
-
-    </script>
-
-    <!-- ClassNames -->
-    <script src="javascript/ClassNames.js"></script>
-
-    <!-- QLOCK -->
-    <script type="text/jsx" src="javascript/Qlock.js"></script>
-
 </body>
 </html>
