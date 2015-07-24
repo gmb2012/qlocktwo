@@ -1,6 +1,6 @@
 # TODO
-- Fluxible
 - make the clock work
+- Yeoman + building rein
 - Tests
 - do it in react
 - more views

@@ -1,19 +1,34 @@
+"use strict";
+
 define(['ClassNames', 'react'], function (ClassNames, React) {
 
     // react components
-    var Qlock = React.createClass({
+    // the Qlock itself
+    var QlockBlock = React.createClass({
+        refreshClock: function() {
+            var qlock = new Qlock(new Date());
+            this.setState({time: time, minAndSec: qlock.getMinAndSec()});
+        },
+        getInitialState: function() {
+            return {time: [], minAndSec:[]};
+        },
+        componentDidMount: function() {
+            this.refreshClock();
+            setInterval(this.refreshClock, this.props.refreshIntervall);
+        },
         render: function () {
             return (
                 <div>
-                    {this.props.time.map(function (item, index) {
+                    {this.state.time.map(function (item, index) {
                         return <QlockRow cells={item} key={index}/>;
                     })}
-                    <QlockRow cells={minAndSec}/>
+                    <QlockRow cells={this.state.minAndSec}/>
                 </div>
             );
         }
     });
 
+    // row
     var QlockRow = React.createClass({
         render: function () {
             return (
@@ -27,6 +42,7 @@ define(['ClassNames', 'react'], function (ClassNames, React) {
         }
     });
 
+    // cell
     var QlockCell = React.createClass({
         render: function () {
             return (
@@ -169,23 +185,75 @@ define(['ClassNames', 'react'], function (ClassNames, React) {
         ]
     ];
 
-    var minAndSec = [
-        {char: "M", active: false},
-        {char: "1", active: false},
-        {char: "0", active: false},
-        {char: "0", active: false},
-        {char: "S", active: false},
-        {char: "1", active: false},
-        {char: "1", active: false},
-        {char: "1", active: false},
-        {char: "1", active: false},
-        {char: "1", active: false},
-        {char: "0", active: false}
-    ];
-
     React.render(
-        <Qlock time={time} minAndSec={minAndSec}/>,
-        document.getElementById('Qlock')
+        <QlockBlock refreshIntervall={1000} />,
+        document.getElementById('QlockBlock')
     );
 
 });
+
+
+// Classes
+class QlockCellDecorator {
+    static decorate(char, active) {
+        return { char: char, active: (typeof active == 'undefined' ? false : active) };
+    }
+}
+
+class AbstractQlockCalculator {
+    constructor(dateParam) {
+        this.date = dateParam;
+    }
+}
+
+class QlockCalculatorMinutesAndSeconds  extends AbstractQlockCalculator {
+    toBinArray(time) {
+        return time.toString(2).split('')
+    }
+
+    zeroPad(input, minLength) {
+        while(input.length < minLength) {
+            input = [0].concat(input);
+        }
+
+        return input;
+    }
+
+    get(firstChar, time, minLength) {
+        return [firstChar].concat(this.zeroPad(this.toBinArray(time), minLength)).map(
+            function(elem) { return QlockCellDecorator.decorate(elem) }
+        );
+    }
+}
+
+class QlockCalculatorMinutes extends QlockCalculatorMinutesAndSeconds {
+    get() {
+        return super.get('M', this.date.getMinutes() % 5, 3); // modulo 5
+    };
+}
+
+class QlockCalculatorSeconds extends QlockCalculatorMinutesAndSeconds {
+    get() {
+        return super.get('S', this.date.getSeconds(), 6);
+    };
+}
+
+
+class Qlock {
+    constructor(date) {
+        this.minutesCalculator = new QlockCalculatorMinutes(date);
+        this.secondsCalculator = new QlockCalculatorSeconds(date);
+
+    }
+
+    getTime() {
+
+    }
+
+    getMinAndSec() {
+        return this.minutesCalculator.get().concat(this.secondsCalculator.get());
+
+    }
+}
+
+
