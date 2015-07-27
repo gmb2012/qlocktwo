@@ -1,7 +1,7 @@
 # TODO
-- make the clock work
 - Yeoman + building rein
 - Tests
+- Documentation
 - do it in react
 - more views
 - check for new font
