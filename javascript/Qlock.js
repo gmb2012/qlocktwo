@@ -185,7 +185,7 @@ class QlockDE {
         ]
 
         this.hourMap = {
-            0: [[9, 0], [9, 1], [9, 2], [9, 3]],
+            0: [[9, 0], [9, 1], [9, 2], [9, 3], [9, 4]],
             1: [[4, 0], [4, 1], [4, 2]],
             2: [[4, 7], [4, 8], [4, 9], [4, 10]],
             3: [[5, 0], [5, 1], [5, 2], [5, 3]],
@@ -211,19 +211,34 @@ class QlockCalculatorTime {
         this.date = date;
         this.qlock = new QlockDE();
 
-        // calculate active minutes and hours
-        this.activeMinutes = this.getActiveMinutes();
-        this.activeHours = this.getActiveHours();
+        // combining all elements to one array & calculate active map
+        this.activeMap = this.computeActiveMap(this.getActiveMinutes().concat(this.getActiveHours(), this.getActiveClockWords(), this.qlock.staticMap));
+    }
+
+    computeActiveMap(actives) {
+        var returnValue = [];
+
+        actives.forEach(function(elem) {
+            // check if is an array already
+            if(typeof returnValue[elem[0]] === 'undefined') {
+                returnValue[elem[0]] = [];
+            }
+
+            returnValue[elem[0]][elem[1]] = true;
+        });
+
+        return returnValue;
     }
 
     getActiveHours() {
         var hour = this.date.getHours();
-        if(hour > 11) {
-            hour -= 12;
-        }
 
         if(this.date.getMinutes() >= this.qlock.swapHour) {
             hour += 1;
+        }
+
+        if(hour > 11) {
+            hour -= 12;
         }
 
         return  this.qlock.hourMap[hour];
@@ -242,48 +257,23 @@ class QlockCalculatorTime {
         return returnValue;
     }
 
-    isActive(x, y, active) {
-        var returnValue = false;
-
-        active.forEach(function(elem) {
-            if(elem[0] == x && elem[1] == y) {
-                returnValue = true;
-                return;
-            }
-        });
-
-        return returnValue;
-    }
-
-    isActiveMinute(x, y) {
-        return this.isActive(x, y, this.activeMinutes);
-    }
-
-    isActiveHour(x, y) {
-        return this.isActive(x, y, this.activeHours);
-    }
-
-    isActiveClockWord(x, y) {
+    getActiveClockWords(x, y) {
         if(this.date.getMinutes() < 5) {
-            return this.isActive(x, y, this.qlock.clockWordMap);
+            return this.qlock.clockWordMap;
         } else {
-            return false;
+            return [];
         }
     }
 
-    isActiveStatic(x, y) {
-        return this.isActive(x, y, this.qlock.staticMap);
-    }
-
-    isActiveCell(x, y) {
-        return this.isActiveStatic(x, y) || this.isActiveMinute(x, y) || this.isActiveHour(x, y) || this.isActiveClockWord(x, y);
+    isActive(x, y) {
+        return (typeof this.activeMap[x] !== 'undefined' && typeof this.activeMap[x][y] !== 'undefined')
     }
 
     get() {
         return this.qlock.layout.map(
             function(row, rowIndex) {
                 return row.map(function(char, columIndex) {
-                    return QlockCellDecorator.decorate(char, this.isActiveCell(rowIndex, columIndex));
+                    return QlockCellDecorator.decorate(char, this.isActive(rowIndex, columIndex));
                 }.bind(this));
             }.bind(this)
         );
