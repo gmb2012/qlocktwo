@@ -1,5 +1,6 @@
 # TODO
-- Yeoman + building rein
+- Frontend scripts => client folder
+- flexbox to remove fixed height for the border
 - Tests
 - Documentation
 - do it in react
@@ -17,3 +18,13 @@ Morning: 04:00 - 11:00
 # Resources
 https://developer.forecast.io/docs/v2#forecast_call
 
+# What to ask
+- Node in Production
+- Node Webserver mit mehreren Endpunkten
+    - Statisches Html
+    - Assets
+    - JSON
+- Auto refresh
+- Allgemeine Verzeichnisstruktur
+- Entwicklung in Atom?
+- Tests

@@ -1,78 +1,22 @@
-"use strict";
+/*
+ * Buisness Logic for the Qlock
+ */
 
-define(['ClassNames', 'react'], function (ClassNames, React) {
-
-    // react components
-    // the Qlock itself
-    var QlockBlock = React.createClass({
-        refreshClock: function() {
-            var qlock = new Qlock(new Date());
-            this.setState({time: qlock.getTime(), minAndSec: qlock.getMinAndSec()});
-        },
-        getInitialState: function() {
-            return {time: [], minAndSec:[]};
-        },
-        componentDidMount: function() {
-            this.refreshClock();
-            setInterval(this.refreshClock, this.props.refreshIntervall);
-        },
-        render: function () {
-            return (
-                <div>
-                    {this.state.time.map(function (item, index) {
-                        return <QlockRow cells={item} key={index}/>;
-                    })}
-                    <QlockRow cells={this.state.minAndSec}/>
-                </div>
-            );
-        }
-    });
-
-    // row
-    var QlockRow = React.createClass({
-        render: function () {
-            return (
-                <div className="row">
-                    {this.props.cells.map(function (item, index) {
-                        return <QlockCell char={item.char} active={item.active} key={index}/>;
-                    })}
-                </div>
-
-            );
-        }
-    });
-
-    // cell
-    var QlockCell = React.createClass({
-        render: function () {
-            return (
-                <div
-                    className={ClassNames({'qlock-letter': true, 'qlock-active': this.props.active})}>{this.props.char}</div>
-            );
-        }
-    });
-
-    React.render(
-        <QlockBlock refreshIntervall={1000} />,
-        document.getElementById('QlockBlock')
-    );
-
-});
-
-
-// Classes
+// Decorator for creating the data structure expected by the react component
 class QlockCellDecorator {
     static decorate(char, active) {
         return { char: char, active: (typeof active == 'undefined' ? false : active) };
     }
 }
 
+// Base class for calculations
 class AbstractQlockCalculator {
     constructor(dateParam) {
         this.date = dateParam;
     }
 }
 
+// Base calculator for minutes and seconds
 class QlockCalculatorMinutesAndSeconds  extends AbstractQlockCalculator {
     toBinArray(time) {
         return time.toString(2).split('')
@@ -93,20 +37,97 @@ class QlockCalculatorMinutesAndSeconds  extends AbstractQlockCalculator {
     }
 }
 
+// Calculator for minutes
 class QlockCalculatorMinutes extends QlockCalculatorMinutesAndSeconds {
     get() {
         return super.get('M', this.date.getMinutes() % 5, 3); // modulo 5
     };
 }
 
+// Calculator for seconds
 class QlockCalculatorSeconds extends QlockCalculatorMinutesAndSeconds {
     get() {
         return super.get('S', this.date.getSeconds(), 6);
     };
 }
 
-class QlockDE {
+// Calculator for the time
+class QlockCalculatorTime {
     constructor(date) {
+        this.date = date;
+        this.qlock = new QlockDE();
+
+        // combining all elements to one array & calculate active map
+        this.activeMap = this.computeActiveMap(this.getActiveMinutes().concat(this.getActiveHours(), this.getActiveClockWords(), this.qlock.staticMap));
+    }
+
+    computeActiveMap(actives) {
+        let returnValue = [];
+
+        actives.forEach(function(elem) {
+            // check if is an array already
+            if(typeof returnValue[elem[0]] === 'undefined') {
+                returnValue[elem[0]] = [];
+            }
+
+            returnValue[elem[0]][elem[1]] = true;
+        });
+
+        return returnValue;
+    }
+
+    getActiveHours() {
+        let hour = this.date.getHours();
+
+        if(this.date.getMinutes() >= this.qlock.swapHour) {
+            hour += 1;
+        }
+
+        if(hour > 11) {
+            hour -= 12;
+        }
+
+        return  this.qlock.hourMap[hour];
+    }
+
+    getActiveMinutes() {
+        let returnValue = [];
+
+        this.qlock.minutesMap.forEach(function(elem) {
+            if(this.date.getMinutes() >= elem.bounds.low && this.date.getMinutes() <= elem.bounds.high) {
+                returnValue = elem.active;
+            }
+        }.bind(this));
+
+        return returnValue;
+    }
+
+    getActiveClockWords() {
+        if(this.date.getMinutes() < 5) {
+            return this.qlock.clockWordMap;
+        } else {
+            return [];
+        }
+    }
+
+    isActive(x, y) {
+        return (typeof this.activeMap[x] !== 'undefined' && typeof this.activeMap[x][y] !== 'undefined')
+    }
+
+    get() {
+        return this.qlock.layout.map(
+            function(row, rowIndex) {
+                return row.map(function(char, columIndex) {
+                    return QlockCellDecorator.decorate(char, this.isActive(rowIndex, columIndex));
+                }.bind(this));
+            }.bind(this)
+        );
+    }
+}
+
+// German Qlock layout and properties
+class QlockDE {
+    constructor() {
         this.layout = [
             //0    1    2    3    4    5    6    7    8    9    10
             ["E", "S", "M", "I", "S", "T", "E", "F", "Ü", "N", "F"], // 0
@@ -182,8 +203,9 @@ class QlockDE {
                 bounds: { low: 55, high: 59 },
                 active: minuteWordMap.five.concat(minuteWordMap.before)
             }
-        ]
+        ];
 
+        // hour
         this.hourMap = {
             0: [[9, 0], [9, 1], [9, 2], [9, 3], [9, 4]],
             1: [[4, 0], [4, 1], [4, 2]],
@@ -199,88 +221,15 @@ class QlockDE {
             11: [[8, 8], [8, 9], [8, 10]]
         };
 
-        this.swapHour = 29;
+        // when to increment hour by one
+        this.swapHour = 25;
 
         // clock word
         this.clockWordMap = [[9, 8], [9, 9], [9, 10]];
     }
 }
 
-class QlockCalculatorTime {
-    constructor(date) {
-        this.date = date;
-        this.qlock = new QlockDE();
-
-        // combining all elements to one array & calculate active map
-        this.activeMap = this.computeActiveMap(this.getActiveMinutes().concat(this.getActiveHours(), this.getActiveClockWords(), this.qlock.staticMap));
-    }
-
-    computeActiveMap(actives) {
-        var returnValue = [];
-
-        actives.forEach(function(elem) {
-            // check if is an array already
-            if(typeof returnValue[elem[0]] === 'undefined') {
-                returnValue[elem[0]] = [];
-            }
-
-            returnValue[elem[0]][elem[1]] = true;
-        });
-
-        return returnValue;
-    }
-
-    getActiveHours() {
-        var hour = this.date.getHours();
-
-        if(this.date.getMinutes() >= this.qlock.swapHour) {
-            hour += 1;
-        }
-
-        if(hour > 11) {
-            hour -= 12;
-        }
-
-        return  this.qlock.hourMap[hour];
-    }
-
-    getActiveMinutes() {
-        var returnValue = [];
-
-        this.qlock.minutesMap.forEach(function(elem) {
-            if(this.date.getMinutes() >= elem.bounds.low && this.date.getMinutes() <= elem.bounds.high) {
-                returnValue = elem.active;
-                return;
-            }
-        }.bind(this));
-
-        return returnValue;
-    }
-
-    getActiveClockWords(x, y) {
-        if(this.date.getMinutes() < 5) {
-            return this.qlock.clockWordMap;
-        } else {
-            return [];
-        }
-    }
-
-    isActive(x, y) {
-        return (typeof this.activeMap[x] !== 'undefined' && typeof this.activeMap[x][y] !== 'undefined')
-    }
-
-    get() {
-        return this.qlock.layout.map(
-            function(row, rowIndex) {
-                return row.map(function(char, columIndex) {
-                    return QlockCellDecorator.decorate(char, this.isActive(rowIndex, columIndex));
-                }.bind(this));
-            }.bind(this)
-        );
-    }
-}
-
-
+// Qlock base class to be exposed to other modules
 class Qlock {
     constructor(date) {
         this.minutesCalculator = new QlockCalculatorMinutes(date);
@@ -299,4 +248,4 @@ class Qlock {
     }
 }
 
-
+export default Qlock;
