@@ -5,7 +5,7 @@ app.use(express.static('build'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-    res.send('Hello World')
-})
+    res.send('Hello World');
+});
 
-app.listen(3000)
+app.listen(3000);

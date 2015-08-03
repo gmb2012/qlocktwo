@@ -1,5 +1,3 @@
-'use strict';
-
 var path = require('path'),
     targetPath = path.join(__dirname, 'build', 'assets'),
     webpack = require('webpack'),
@@ -29,6 +27,5 @@ config = {
         ]
     }
 };
-
 
 module.exports = config;

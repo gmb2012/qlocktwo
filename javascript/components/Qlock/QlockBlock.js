@@ -1,21 +1,19 @@
-"use strict";
-
 import React from 'react';
-import Qlock from '../../lib/Qlock.js';
-import QlockRow from './QlockRow.jsx';
+import Qlock from '../../lib/Qlock/Qlock';
+import QlockRow from './QlockRow';
 
 class QlockBlock extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {time: [], minAndSec:[]};
+        this.state = { time: [], minAndSec: [] };
 
         // binding
         this.refreshClock = this.refreshClock.bind(this);
     }
 
     refreshClock() {
-        var qlock = new Qlock(new Date());
-        this.setState({time: qlock.getTime(), minAndSec: qlock.getMinAndSec()});
+        let qlock = new Qlock(new Date());
+        this.setState({ time: qlock.getTime(), minAndSec: qlock.getMinAndSec() });
     }
 
     componentDidMount() {
@@ -26,13 +24,15 @@ class QlockBlock extends React.Component {
     render() {
         return (
             <div>
-                {this.state.time.map(function (item, index) {
-                    return <QlockRow cells={item} key={index}/>;
-                })}
+                {this.state.time.map((item, index) => <QlockRow cells={item} key={index}/>)}
                 <QlockRow cells={this.state.minAndSec}/>
             </div>
         );
     }
 }
+
+QlockBlock.propTypes = {
+    refreshIntervall: React.PropTypes.number.isRequired
+};
 
 export default QlockBlock;
