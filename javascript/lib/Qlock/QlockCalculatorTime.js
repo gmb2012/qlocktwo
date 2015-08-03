@@ -8,9 +8,14 @@ class QlockCalculatorTime {
         this.qlock = new QlockDE();
 
         // combining all elements to one array & calculate active map
-        this.activeMap = this.computeActiveMap(
-            this.getActiveMinutes().concat(
-                this.getActiveHours(), this.getActiveClockWords(), this.qlock.staticMap));
+        this.activeMap =
+            this.computeActiveMap(
+                this.qlock.applyCountrySpecificRules(
+                    this.date,
+                    this.getActiveMinutes().concat(
+                        this.getActiveHours(),
+                        this.getActiveClockWords(),
+                        this.qlock.staticMap)));
     }
 
     computeActiveMap(actives) {

@@ -110,6 +110,20 @@ class QlockDE {
         // clock word
         this.clockWordMap = [ [ 9, 8 ], [ 9, 9 ], [ 9, 10 ] ];
     }
+
+    // method for country specific stuff
+    applyCountrySpecificRules(date, activeElements) {
+        let returnValue = activeElements;
+
+        // remove last char if it is one o'clock
+        if ((date.getHours() === 1 || date.getHours() === 1) && date.getMinutes() < 5) {
+            returnValue = returnValue.filter(function (elem) {
+                return elem[0] !== 4 || elem[1] !== 3;
+            });
+        }
+
+        return returnValue;
+    }
 }
 
 export default QlockDE;
