@@ -1,5 +1,19 @@
 import $ from 'jquery';
 import Chart from 'chart.js';
+import React from 'react';
+import EnvironmentRow from '../Environment/EnvironmentRow';
+
+/* global document */
+
+let items = [
+    { labelClasses: [ 'wi', 'wi-thermometer', 'wi-2x' ], data: '34° C'},
+    { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-2x' ], data: '50%'},
+];
+
+React.render(
+    <EnvironmentRow items={items} />,
+    document.getElementById('Interior')
+);
 
 let options = {
     pointDot: false
@@ -31,7 +45,6 @@ let data = {
     ]
 };
 
-/* global document */
 $(document).ready(function () {
     new Chart($('#interiorChart').get(0).getContext('2d')).Line(data, options);
 });

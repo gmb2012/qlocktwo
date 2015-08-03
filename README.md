@@ -2,6 +2,8 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
+- weather as component
+- real components out of it incl. graph
 - do it in react
 - webservices
 - Tests

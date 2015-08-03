@@ -1,6 +1,7 @@
 import React from 'react';
 import QlockBlock from './components/Qlock/QlockBlock';
-import InteriorBlock from './components/InteriorComponent';
+import InteriorBlock from './components/Interior/InteriorComponent';
+import ExteriorBlock from './components/Exterior/ExteriorComponent';
 
 /* global document */
 
@@ -9,4 +10,3 @@ React.render(
     <QlockBlock refreshIntervall={1000} />,
     document.getElementById('QlockBlock')
 );
-
