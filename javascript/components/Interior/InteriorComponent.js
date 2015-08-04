@@ -2,18 +2,44 @@ import $ from 'jquery';
 import Chart from 'chart.js';
 import React from 'react';
 import EnvironmentRow from '../Environment/EnvironmentRow';
+import EnvironmentCategory from '../Environment/EnvironmentCategory';
 
 /* global document */
 
-let items = [
-    { labelClasses: [ 'wi', 'wi-thermometer', 'wi-2x' ], data: '34° C'},
-    { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-2x' ], data: '50%'},
-];
+class InteriorComponent extends React.Component {
+    render() {
+        return (
+            <div className='row environment'>
+                <EnvironmentCategory iconClasses={this.props.iconClasses} />
+                <div className='col-md-10 col-xs-10'>
+                    <EnvironmentRow items={this.props.items} />
 
-React.render(
-    <EnvironmentRow items={items} />,
-    document.getElementById('Interior')
-);
+                    <div className='row'>
+                        <canvas id='interiorChart' className='col-md-12 col-xs-12' style={ { height: '130px' } }></canvas>
+                    </div>
+
+                </div>
+            </div>
+        );
+    }
+}
+
+InteriorComponent.propTypes = {
+    iconClasses: React.PropTypes.array.isRequired,
+    items: React.PropTypes.array.isRequired
+};
+
+export default InteriorComponent;
+
+
+
+
+
+
+
+
+
+
 
 let options = {
     pointDot: false

@@ -5,9 +5,7 @@ class EnvironmentRow extends React.Component {
     render() {
         return (
             <div className='row'>
-                {this.props.items.map(function (item, index) {
-                    return <EnvironmentItem {...item} key={index}/>;
-                })}
+                {this.props.items.map((item, index) => <EnvironmentItem {...item} key={index} />)}
             </div>
         );
     }

@@ -2,17 +2,19 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- weather as component
+- fix linting
 - real components out of it incl. graph
-- do it in react
-- webservices
+- react graphing => https://github.com/jhudson8/react-chartjs
+- webservices with super agent => incl. error if external webservice is not reachable (timeout)
 - Tests
 - Documentation
-- more views => stuff for stats
+- more views => stuff for stats => averages, monthly reporting, ....
 - check for new font
 - flexbox to remove fixed height for the border
 - Wind speed miles per hour to kmh
 - Moonphase from current
+- Save also external temperature and humidity
+- last updated information in console or in gui
 
 
 # Documentation

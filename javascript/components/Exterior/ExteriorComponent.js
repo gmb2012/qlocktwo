@@ -1,25 +1,23 @@
 import React from 'react';
 import EnvironmentRow from '../Environment/EnvironmentRow';
+import EnvironmentCategory from '../Environment/EnvironmentCategory';
 
-/* global document */
+class ExteriorComponent extends React.Component {
+    render() {
+        return (
+            <div className='row environment'>
+                <EnvironmentCategory iconClasses={this.props.iconClasses} />
+                <div className='col-md-10 col-xs-10'>
+                    {this.props.rows.map((items, index) => <EnvironmentRow items={items} key={index}/>)}
+                </div>
+            </div>
+        );
+    }
+}
 
-let items01 = [
-    { labelClasses: [ 'wi', 'wi-thermometer', 'wi-2x' ], data: '24° C' },
-    { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-2x' ], data: '30%' }
-];
+ExteriorComponent.propTypes = {
+    iconClasses: React.PropTypes.array.isRequired,
+    rows: React.PropTypes.array.isRequired
+};
 
-let items02 = [
-    { labelClasses: [ 'wi', 'wi-sunrise', 'wi-1_2x' ], data: '07:00' },
-    { labelClasses: [ 'wi', 'wi-sunset', 'wi-1_2x' ], data: '21:50' },
-    { labelClasses: [ 'wi', 'wi-moon-waning-gibbous-2', 'wi-1_2x' ] }
-];
-
-React.render(
-    <EnvironmentRow items={items01} />,
-    document.getElementById('Exterior01')
-);
-
-React.render(
-    <EnvironmentRow items={items02} />,
-    document.getElementById('Exterior02')
-);
+export default ExteriorComponent;
