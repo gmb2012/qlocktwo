@@ -5,7 +5,7 @@ class EnvironmentItem extends React.Component {
     render() {
         let data = '';
         if (this.props.data) {
-            data = <EnvironmentData data={ this.props.data } />
+            data = <EnvironmentData data={ this.props.data } />;
         }
 
         return (

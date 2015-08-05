@@ -25,7 +25,7 @@ ForecastItem.propTypes = {
     labelClasses: React.PropTypes.array.isRequired,
     temperature: React.PropTypes.string.isRequired,
     humidity: React.PropTypes.string.isRequired,
-    wind: React.PropTypes.string.isRequired,
+    wind: React.PropTypes.string.isRequired
 };
 
 export default ForecastItem;

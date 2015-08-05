@@ -15,7 +15,8 @@ class InteriorComponent extends React.Component {
                     <EnvironmentRow items={this.props.items} />
 
                     <div className='row'>
-                        <canvas id='interiorChart' className='col-md-12 col-xs-12' style={ { height: '130px' } }></canvas>
+                        <canvas id='interiorChart' className='col-md-12 col-xs-12' style={ { height: '130px' } }>
+                        </canvas>
                     </div>
 
                 </div>
@@ -31,16 +32,7 @@ InteriorComponent.propTypes = {
 
 export default InteriorComponent;
 
-
-
-
-
-
-
-
-
-
-
+// remove stuff here
 let options = {
     pointDot: false
 };
@@ -71,6 +63,7 @@ let data = {
     ]
 };
 
+/* eslint new-cap: [1, {capIsNewExceptions: ["L"]}] */
 $(document).ready(function () {
     new Chart($('#interiorChart').get(0).getContext('2d')).Line(data, options);
 });

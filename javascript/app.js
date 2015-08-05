@@ -45,19 +45,28 @@ React.render(
 // Forecast component
 let fcRows = [
     [
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: 'Morgens', temperature: '24° / 36° C', humidity: '67%', wind: '14 km/h' },
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: 'Mittags', temperature: '24° / 36° C', humidity: '67%', wind: '1 km/h' },
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: 'Abends', temperature: '24° / 36° C', humidity: '67%', wind: '104 km/h' }
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: 'Morgens', temperature: '24° / 36° C', humidity: '67%', wind: '14 km/h' },
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: 'Mittags', temperature: '24° / 36° C', humidity: '67%', wind: '1 km/h' },
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: 'Abends', temperature: '24° / 36° C', humidity: '67%', wind: '104 km/h' }
     ],
     [
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: '18.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '14 km/h' },
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: '19.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '1 km/h' },
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: '20.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '104 km/h' }
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: '18.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '14 km/h' },
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: '19.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '1 km/h' },
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: '20.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '104 km/h' }
     ],
     [
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: '21.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '14 km/h' },
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: '22.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '1 km/h' },
-        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ], label: '23.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '104 km/h' }
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: '21.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '14 km/h' },
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: '22.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '1 km/h' },
+        { labelClasses: [ 'wi', 'wi-day-rain-mix', 'wi-1_2x' ],
+            label: '23.07.2015', temperature: '24° / 36° C', humidity: '67%', wind: '104 km/h' }
     ]
 ];
 
