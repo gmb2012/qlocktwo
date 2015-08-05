@@ -3,25 +3,25 @@ class QlockDE {
     constructor() {
         this.layout = [
             //     0    1    2    3    4    5    6    7    8    9    10
-            // 0
+        // 0
             [ 'E', 'S', 'M', 'I', 'S', 'T', 'E', 'F', 'Ü', 'N', 'F' ],
-            // 1
+        // 1
             [ 'Z', 'E', 'H', 'N', 'Z', 'W', 'A', 'N', 'Z', 'I', 'G' ],
-            // 2
+        // 2
             [ 'N', 'A', 'C', 'H', 'V', 'I', 'E', 'R', 'T', 'E', 'L' ],
-            // 3
+        // 3
             [ 'V', 'O', 'R', 'N', 'A', 'C', 'H', 'H', 'A', 'L', 'B' ],
-            // 4
+        // 4
             [ 'E', 'I', 'N', 'S', 'I', 'N', 'K', 'Z', 'W', 'E', 'I' ],
-            // 5
+        // 5
             [ 'D', 'R', 'E', 'I', 'E', 'A', 'N', 'V', 'I', 'E', 'R' ],
-            // 6
+        // 6
             [ 'F', 'Ü', 'N', 'F', 'N', 'I', 'S', 'E', 'C', 'H', 'S' ],
-            // 7
+        // 7
             [ 'S', 'I', 'E', 'B', 'E', 'N', 'I', 'A', 'C', 'H', 'T' ],
-            // 8
+        // 8
             [ 'N', 'E', 'U', 'N', 'Z', 'E', 'H', 'N', 'E', 'L', 'F' ],
-            // 9
+        // 9
             [ 'Z', 'W', 'Ö', 'L', 'F', 'K', 'A', 'B', 'U', 'H', 'R' ]
         ];
 
@@ -116,7 +116,7 @@ class QlockDE {
         let returnValue = activeElements;
 
         // remove last char if it is one o'clock
-        if ((date.getHours() === 1 || date.getHours() === 1) && date.getMinutes() < 5) {
+        if ((date.getHours() === 1 || date.getHours() === 13) && date.getMinutes() < 5) {
             returnValue = returnValue.filter(function (elem) {
                 return elem[0] !== 4 || elem[1] !== 3;
             });

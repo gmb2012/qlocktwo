@@ -1,3 +1,4 @@
+import QlockDE from './QlockDE';
 import QlockCalculatorTime from './QlockCalculatorTime';
 import QlockCalculatorMinutes from './QlockCalculatorMinutes';
 import QlockCalculatorSeconds from './QlockCalculatorSeconds';
@@ -7,7 +8,7 @@ class Qlock {
     constructor(date) {
         this.minutesCalculator = new QlockCalculatorMinutes(date);
         this.secondsCalculator = new QlockCalculatorSeconds(date);
-        this.timeCalculator = new QlockCalculatorTime(date);
+        this.timeCalculator = new QlockCalculatorTime(date, new QlockDE());
     }
 
     getTime() {

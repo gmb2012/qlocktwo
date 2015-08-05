@@ -4,9 +4,10 @@
   "description": "- Sauberes builden - flexbox to remove fixed height for the border - Tests - Documentation - do it in react - more views - check for new font - Wind speed miles per hour to kmh - Moonphase from current",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:unit --coverage",
+    "test:unit": "NODE_ENV=test istanbul test _mocha test/unit -- --opts test/unit/mocha.opts",
     "dev": "node server.js & webpack --watch",
-    "lint": "eslint ./*.js ./javascript/*.js ./javascript/**/*.js"
+    "lint": "eslint --ext '.js' ./javascript"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,15 @@
   },
   "homepage": "https://github.com/gmb2012/qlocktwo#readme",
   "devDependencies": {
-    "webpack": "^1.10.5",
+    "babel": "^5.8.20",
     "babel-core": "^5.8.19",
     "babel-loader": "^5.3.2",
+    "chai": "^3.2.0",
     "eslint": "^0.23.0",
-    "eslint-plugin-react": "2.6.4"
+    "eslint-plugin-react": "2.6.4",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "webpack": "^1.10.5"
   },
   "dependencies": {
     "chart.js": "^1.0.2",

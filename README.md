@@ -2,11 +2,9 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- fix linting
-- real components out of it incl. graph
+- Unit Tests for react components
 - react graphing => https://github.com/jhudson8/react-chartjs
 - webservices with super agent => incl. error if external webservice is not reachable (timeout)
-- Tests
 - Documentation
 - more views => stuff for stats => averages, monthly reporting, ....
 - check for new font
@@ -30,5 +28,3 @@ https://developer.forecast.io/docs/v2#forecast_call
 
 # What to ask
 - Node in Production
-- Entwicklung in Atom?
-- Tests

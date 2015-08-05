@@ -14,7 +14,7 @@ class QlockCalculatorMinutesAndSeconds {
         let returnValue = input;
 
         while (returnValue.length < minLength) {
-            returnValue = [ 0 ].concat(returnValue);
+            returnValue = [ '0' ].concat(returnValue);
         }
 
         return returnValue;
@@ -23,7 +23,7 @@ class QlockCalculatorMinutesAndSeconds {
     get(firstChar, time, minLength) {
         return [ firstChar ].concat(this.zeroPad(this.toBinArray(time), minLength)).map(
             function (elem) {
-                return QlockCellDecorator.decorate(elem.toString());
+                return QlockCellDecorator.decorate(elem);
             }
         );
     }

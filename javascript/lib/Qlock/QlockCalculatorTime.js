@@ -1,21 +1,10 @@
-import QlockDE from './QlockDE';
 import QlockCellDecorator from './QlockCellDecorator';
 
 // Calculator for the time
 class QlockCalculatorTime {
-    constructor(date) {
+    constructor(date, qlock) {
         this.date = date;
-        this.qlock = new QlockDE();
-
-        // combining all elements to one array & calculate active map
-        this.activeMap =
-            this.computeActiveMap(
-                this.qlock.applyCountrySpecificRules(
-                    this.date,
-                    this.getActiveMinutes().concat(
-                        this.getActiveHours(),
-                        this.getActiveClockWords(),
-                        this.qlock.staticMap)));
+        this.qlock = qlock;
     }
 
     computeActiveMap(actives) {
@@ -40,7 +29,9 @@ class QlockCalculatorTime {
             hour += 1;
         }
 
-        if (hour > 11) {
+        if (hour === 24) {
+            hour = 0;
+        } else if (hour > 11) {
             hour -= 12;
         }
 
@@ -70,6 +61,18 @@ class QlockCalculatorTime {
     }
 
     isActive(x, y) {
+        // combining all elements to one array & calculate active map
+        if (!this.activeMap) {
+            this.activeMap =
+                this.computeActiveMap(
+                    this.qlock.applyCountrySpecificRules(
+                        this.date,
+                        this.getActiveMinutes().concat(
+                            this.getActiveHours(),
+                            this.getActiveClockWords(),
+                            this.qlock.staticMap)));
+        }
+
         return (typeof this.activeMap[x] !== 'undefined' && typeof this.activeMap[x][y] !== 'undefined');
     }
 
