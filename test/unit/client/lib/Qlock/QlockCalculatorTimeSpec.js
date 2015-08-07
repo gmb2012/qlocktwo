@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import QlockCalculatorTime from '../../../../javascript/lib/Qlock/QlockCalculatorTime';
+import QlockCalculatorTime from '../../../../../javascript/client/lib/Qlock/QlockCalculatorTime';
 
 describe('QlockCalculatorTime', function () {
     let qlockCalculatorTime;

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import QlockCalculatorSeconds from '../../../../javascript/lib/Qlock/QlockCalculatorSeconds';
-import QlockCellDecorator from '../../../../javascript/lib/Qlock/QlockCellDecorator';
+import QlockCalculatorSeconds from '../../../../../javascript/client/lib/Qlock/QlockCalculatorSeconds';
+import QlockCellDecorator from '../../../../../javascript/client/lib/Qlock/QlockCellDecorator';
 
 describe('QlockCalculatorSeconds', function () {
     let qlockCalculatorSeconds;

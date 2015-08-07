@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import QlockCellDecorator from '../../../../javascript/lib/Qlock/QlockCellDecorator';
+import QlockCellDecorator from '../../../../../javascript/client/lib/Qlock/QlockCellDecorator';
 
 describe('QlockCellDecorator', function () {
     it('decorates char and active = true', function () {

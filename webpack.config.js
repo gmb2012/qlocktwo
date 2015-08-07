@@ -8,7 +8,7 @@ config = {
         extensions: [ '', '.js', '.jsx' ]
     },
     entry: {
-        js: './javascript/app.js'
+        js: './javascript/client/app.js'
     },
     output: {
         path: targetPath,
