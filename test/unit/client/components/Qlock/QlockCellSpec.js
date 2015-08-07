@@ -13,8 +13,8 @@ describe('QlockCell Component', function () {
 
     it('Renders a Qlock Cell', function () {
         expect(TestUtils.scryRenderedDOMComponentsWithClass(qlockCell, 'qlock-letter')).to.have.length(1);
-
-        expect(TestUtils.findRenderedComponentWithType(qlockCell, QlockCell).props.char).to.equal('A');
-        expect(TestUtils.findRenderedComponentWithType(qlockCell, QlockCell).props.active).to.equal(true);
+        const divNode = React.findDOMNode(qlockCell);
+        expect(divNode.textContent).to.equal('A');
+        expect(divNode.className).to.equal('qlock-letter qlock-active');
     });
 });
