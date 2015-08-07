@@ -1,3 +1,4 @@
 --reporter spec
 --recursive
+--require ./test/unit/client/setupEnvironment.js
 --compilers js:./test/babelCompiler.js

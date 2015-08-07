@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:unit --coverage",
-    "test:unit": "NODE_ENV=test istanbul test _mocha test/unit -- --opts test/unit/mocha.opts",
+    "test:unit": "npm run test:unit:client",
+    "test:unit:client": "NODE_ENV=test istanbul test _mocha test/unit/client -- --opts test/unit/client/mocha.opts",
     "dev": "node server.js & webpack --watch",
     "lint": "eslint --ext '.js' ./javascript"
   },
@@ -27,6 +28,7 @@
     "eslint": "^0.23.0",
     "eslint-plugin-react": "2.6.4",
     "istanbul": "^0.3.17",
+    "jsdom": "^6.0.0",
     "mocha": "^2.2.5",
     "webpack": "^1.10.5"
   },
