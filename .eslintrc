@@ -193,7 +193,7 @@
     "space-unary-ops": 2,
     "spaced-comment": [ 2, "always" ],
     "spaced-line-comment": 0,
-    "strict": [2, "global"],
+    "strict": [1, "global"], // to 2 later
     "use-isnan": 2,
     "valid-jsdoc": 0,
     "valid-typeof": 2,

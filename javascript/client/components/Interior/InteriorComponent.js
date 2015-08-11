@@ -27,7 +27,7 @@ class InteriorComponent extends React.Component {
         Superagent
             .get(this.props.serviceURL)
             .end(function (err, res) {
-                if (res.ok) {
+                if (res && res.ok) {
                     this.setState({ items: this.getInteriorCurrentStructure(res.body.temperature, res.body.humidity) });
                 } else {
                     LogError.error('Webservice error in Interior / Current: ' + err);

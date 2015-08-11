@@ -2,7 +2,12 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- Move app.js props to a json
+- Add real dates and some documents to mongo
+- database config to config ;)
+- watcher for node.js restart? => https://github.com/remy/nodemon
+- MVC for express
+- let or var for node
+- import vs require for node
 - react graphing => https://github.com/jhudson8/react-chartjs
 - subcomponent incl graph and webservice call
 - webservices with super agent => incl. error if external webservice is not reachable (timeout)
