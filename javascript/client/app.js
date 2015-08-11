@@ -3,8 +3,10 @@ import QlockBlock from './components/Qlock/QlockBlock';
 import InteriorComponent from './components/Interior/InteriorComponent';
 import ExteriorComponent from './components/Exterior/ExteriorComponent';
 import ForecastComponent from './components/Forecast/ForecastComponent';
+import Config from './config.json';
 
 /* global document */
+
 
 // where to move that stuff?
 React.render(
@@ -13,14 +15,8 @@ React.render(
 );
 
 // Interior component
-// stuff => move to states later
-let items = [
-    { labelClasses: [ 'wi', 'wi-thermometer', 'wi-2x' ], data: '34° C' },
-    { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-2x' ], data: '50%' }
-];
-
 React.render(
-    <InteriorComponent items={items} iconClasses={ [ 'fa', 'fa-home', 'fa-2x' ] } />,
+    <InteriorComponent {...Config.InteriorComponent} />,
     document.getElementById('Interior')
 );
 

@@ -2,7 +2,9 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
+- Move app.js props to a json
 - react graphing => https://github.com/jhudson8/react-chartjs
+- subcomponent incl graph and webservice call
 - webservices with super agent => incl. error if external webservice is not reachable (timeout)
 - webservice endpoints providing plain json
 - Unit Tests for react components
@@ -23,6 +25,8 @@ Morning: 04:00 - 11:00
 
 run in dev mode: npm run dev
 linting: npm run lint
+
+use io.js!
 
 # Resources
 https://developer.forecast.io/docs/v2#forecast_call

@@ -1,0 +1,7 @@
+{
+    "InteriorComponent": {
+        "serviceURL": "/services/V1/interior/current",
+        "refreshIntervall": 300000,
+        "iconClasses": [ "fa", "fa-home", "fa-2x" ]
+    }
+}
