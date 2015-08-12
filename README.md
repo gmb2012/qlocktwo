@@ -6,6 +6,8 @@ A QlockTwo combined with displaying of weather data from node.js webservices bas
 - database config to config ;)
 - watcher for node.js restart? => https://github.com/remy/nodemon
 - MVC for express
+- Own NPM module for models
+- Logging for the Frontend
 - let or var for node
 - import vs require for node
 - react graphing => https://github.com/jhudson8/react-chartjs

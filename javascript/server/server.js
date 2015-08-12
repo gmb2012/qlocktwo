@@ -1,15 +1,15 @@
 'use strict';
 
-const express = require('express');
-const app = express();
-const compression = require('compression');
-const mongoose = require('mongoose');
-const Climate = require('./javascript/server/Model/Climate');
-const LogError = require('./javascript/server/LogError');
+var express = require('express');
+var app = express();
+var compression = require('compression');
+var winston = require('winston');
+var mongoose = require('mongoose');
+var Climate = require('./Model/Climate');
 
 // connect to database
 mongoose.connect('mongodb://qlocktwo:qlocktwo@ds031903.mongolab.com:31903/qlocktwo');
-const db = mongoose.connection;
+var db = mongoose.connection;
 /* eslint-disable no-console */
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
@@ -29,12 +29,12 @@ app.use(express.static('public'));
 app.get('/services/V1/interior/current', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
 
-    let climate = new Climate();
+    var climate = new Climate();
     climate.findMostCurrent().then(function (doc) {
         res.send(JSON.stringify(
             { temperature: doc.interior.temperature, humidity: doc.interior.humidity }));
     }, function (err) {
-        LogError.error('Error in InteriorCurrentService - unable to find most current date: ' + err);
+        winston.error('Error in InteriorCurrentService - unable to find most current date: ' + err);
         res.status(500).send('Error in InteriorCurrentService - unable to find most current date: ' + err);
     });
 });
