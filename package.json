@@ -1,7 +1,7 @@
 {
   "name": "qlocktwo",
   "version": "1.0.0",
-  "description": "- Sauberes builden - flexbox to remove fixed height for the border - Tests - Documentation - do it in react - more views - check for new font - Wind speed miles per hour to kmh - Moonphase from current",
+  "description": "QlockTwo and weather dashboard",
   "main": "index.js",
   "scripts": {
     "test": "npm run test:unit --coverage",

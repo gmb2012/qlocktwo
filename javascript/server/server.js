@@ -1,21 +1,12 @@
-'use strict';
+const express = require('express');
+const app = express();
+const compression = require('compression');
+const winston = require('winston');
+const Climate = require('./Model/Climate');
+const DatabaseConnection = require('./DatabaseConnection');
+const Config = require('./config.json');
 
-var express = require('express');
-var app = express();
-var compression = require('compression');
-var winston = require('winston');
-var mongoose = require('mongoose');
-var Climate = require('./Model/Climate');
-
-// connect to database
-mongoose.connect('mongodb://qlocktwo:qlocktwo@ds031903.mongolab.com:31903/qlocktwo');
-var db = mongoose.connection;
-/* eslint-disable no-console */
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-    console.log('Connected to MongoDB');
-});
-/* eslint-enable */
+(new DatabaseConnection()).connect(Config.databaseURI);
 
 // enable compression
 app.use(compression());
@@ -29,7 +20,7 @@ app.use(express.static('public'));
 app.get('/services/V1/interior/current', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
 
-    var climate = new Climate();
+    const climate = new Climate();
     climate.findMostCurrent().then(function (doc) {
         res.send(JSON.stringify(
             { temperature: doc.interior.temperature, humidity: doc.interior.humidity }));
