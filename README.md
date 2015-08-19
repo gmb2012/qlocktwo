@@ -3,6 +3,9 @@ A QlockTwo combined with displaying of weather data from node.js webservices bas
 
 # TODO
 - subcomponent incl graph and webservice call
+- fix lint for var in server
+- use rangeand map
+- webservice for calculating graph data
 - webservices with super agent => incl. error if external webservice is not reachable (timeout)
 - Unit Tests for react components
 - Unit tests for webservices

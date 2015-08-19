@@ -7,8 +7,7 @@ function InteriorCurrent() {
 
         const climate = new Climate();
         climate.findMostCurrent().then(function (doc) {
-            res.send(JSON.stringify(
-                { temperature: doc.interior.temperature, humidity: doc.interior.humidity }));
+            res.send(JSON.stringify({ temperature: doc.interior.temperature, humidity: doc.interior.humidity }));
         }, function (err) {
             winston.error('Error in InteriorCurrentService - unable to find most current date: ' + err);
             res.status(500).send('Error in InteriorCurrentService - unable to find most current date: ' + err);
