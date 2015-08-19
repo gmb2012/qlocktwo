@@ -2,13 +2,12 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- react graphing => https://github.com/jhudson8/react-chartjs
 - subcomponent incl graph and webservice call
 - webservices with super agent => incl. error if external webservice is not reachable (timeout)
-- webservice endpoints providing plain json
 - Unit Tests for react components
+- Unit tests for webservices
 - Documentation
-- Buffering if writing to the database => save to ram + logging
+- Buffering if writing to the database => save to ram incl timestamp + logging
 - more views => stuff for stats => averages, monthly reporting, ....
 - check for new font
 - flexbox to remove fixed height for the border => http://t3n.de/news/css-box-modell-alternative-529712/ & http://flexbox.io/#/

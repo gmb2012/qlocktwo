@@ -7,7 +7,6 @@ import Config from './config.json';
 
 /* global document */
 
-
 // where to move that stuff?
 React.render(
     <QlockBlock refreshIntervall={1000} />,
