@@ -8,7 +8,7 @@
     "test:unit": "npm run test:unit:client",
     "test:unit:client": "NODE_ENV=test istanbul test _mocha test/unit/client -- --opts test/unit/client/mocha.opts",
     "dev": "npm run dev:server & webpack --watch",
-    "dev:server": "node ./javascript/server/server.js",
+    "dev:server": "nodemon --debug ./javascript/server/server.js",
     "lint": "eslint --ext '.js' ./javascript"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "istanbul": "^0.3.17",
     "jsdom": "^6.0.0",
     "mocha": "^2.2.5",
+    "nodemon": "^1.4.1",
     "webpack": "^1.10.5"
   },
   "dependencies": {

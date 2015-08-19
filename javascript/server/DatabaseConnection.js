@@ -1,16 +1,18 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const winston = require('winston');
 
 function DatabaseConnection() {
     this.connect = function (uri) {
         // connect to database
         mongoose.connect(uri);
 
-        /* eslint-disable no-console */
-        mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-        mongoose.connection.once('open', function (callback) {
-            console.log('Connected to MongoDB');
+        mongoose.connection.on('error', function (err) {
+            winston.error('Impossible to connect to DB: ' + err);
         });
-        /* eslint-enable */
+
+        mongoose.connection.once('open', function (callback) {
+            winston.info('Connected to MongoDB');
+        });
     };
 }
 
