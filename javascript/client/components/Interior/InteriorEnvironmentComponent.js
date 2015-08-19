@@ -3,7 +3,6 @@ import Superagent from 'superagent';
 import EnvironmentRow from '../Environment/EnvironmentRow';
 import LogError from '../../lib/LogError';
 
-/* global document */
 class InteriorEnvironmentComponent extends React.Component {
     constructor(props) {
         super(props);

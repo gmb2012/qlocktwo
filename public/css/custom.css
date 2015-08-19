@@ -67,3 +67,8 @@ body{
 .forecast-data {
     font-size: 0.8em;
 }
+
+.interior-line-chart {
+    height: 130px;
+    width: 100%;
+}
