@@ -1,5 +1,5 @@
 const winston = require('winston');
-const Climate = require('../Model/Climate');
+const Climate = require('climateModel');
 
 function InteriorCurrent() {
     this.render = function (req, res) {
