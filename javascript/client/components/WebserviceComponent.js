@@ -8,6 +8,7 @@ class WebserviceComponent extends React.Component {
 
         // binding
         this.refresh = this.refresh.bind(this);
+        this.responseBodyToState = this.responseBodyToState.bind(this);
     }
 
     responseBodyToState(responseBody) {
@@ -19,7 +20,7 @@ class WebserviceComponent extends React.Component {
             .get(this.props.serviceURL)
             .end(function (err, res) {
                 if (res && res.ok) {
-                    this.setState({ items: this.getInteriorCurrentStructure(res.body.temperature, res.body.humidity) });
+                    this.setState(this.responseBodyToState(res.body));
                 } else {
                     LogError.error('Webservice error in class "' + this.constructor.name + '": ' + err);
                 }

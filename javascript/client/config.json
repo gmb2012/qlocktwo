@@ -6,7 +6,7 @@
             "refreshIntervall": 300000
         },
         "interiorChartComponent": {
-            "serviceURL": "/services/V1/interior/current",
+            "serviceURL": "/services/V1/interior/history",
             "refreshIntervall": 600000,
             "chartOptions": {
                 "pointDot": false

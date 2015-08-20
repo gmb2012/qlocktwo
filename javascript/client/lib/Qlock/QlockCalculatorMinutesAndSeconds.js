@@ -1,4 +1,5 @@
 import QlockCellDecorator from './QlockCellDecorator';
+import StringUtil from '../Util/StringUtil';
 
 // Base calculator for minutes and seconds
 class QlockCalculatorMinutesAndSeconds {
@@ -6,22 +7,12 @@ class QlockCalculatorMinutesAndSeconds {
         this.date = dateParam;
     }
 
-    toBinArray(time) {
-        return time.toString(2).split('');
-    }
-
-    zeroPad(input, minLength) {
-        let returnValue = input;
-
-        while (returnValue.length < minLength) {
-            returnValue = [ '0' ].concat(returnValue);
-        }
-
-        return returnValue;
+    toBin(time) {
+        return time.toString(2);
     }
 
     get(firstChar, time, minLength) {
-        return [ firstChar ].concat(this.zeroPad(this.toBinArray(time), minLength)).map(
+        return [ firstChar ].concat(StringUtil.zeroPad(this.toBin(time), minLength).split('')).map(
             function (elem) {
                 return QlockCellDecorator.decorate(elem);
             }

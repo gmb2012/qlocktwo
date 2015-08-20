@@ -9,8 +9,8 @@ function InteriorHistory() {
         for (var i = 0; i <= 7; i += 1) {
             var currentDate = new Date(this.now - (i * 3600 * 1000));
             returnValue[currentDate.getHours()] = {
-                temperature: (Math.round(Math.random() * 50)).toString(),
-                humidity: (Math.round(Math.random() * 100) / 100).toString()
+                temperature: Math.round(Math.random() * 50),
+                humidity: Math.round(Math.random() * 100) / 100
             };
         }
 
