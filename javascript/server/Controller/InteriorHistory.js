@@ -25,4 +25,3 @@ function InteriorHistory() {
 }
 
 module.exports = InteriorHistory;
-

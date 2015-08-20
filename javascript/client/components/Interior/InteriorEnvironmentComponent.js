@@ -1,15 +1,11 @@
 import React from 'react';
-import Superagent from 'superagent';
+import WebserviceComponent from '../WebserviceComponent';
 import EnvironmentRow from '../Environment/EnvironmentRow';
-import LogError from '../../lib/LogError';
 
-class InteriorEnvironmentComponent extends React.Component {
+class InteriorEnvironmentComponent extends WebserviceComponent {
     constructor(props) {
         super(props);
         this.state = { items: this.getInteriorCurrentStructure(0, 0) };
-
-        // binding
-        this.refreshInteriorCurrent = this.refreshInteriorCurrent.bind(this);
     }
 
     getInteriorCurrentStructure(temperature, humidity) {
@@ -19,33 +15,13 @@ class InteriorEnvironmentComponent extends React.Component {
         ];
     }
 
-    refreshInteriorCurrent() {
-        Superagent
-            .get(this.props.serviceURL)
-            .end(function (err, res) {
-                if (res && res.ok) {
-                    this.setState({ items: this.getInteriorCurrentStructure(res.body.temperature, res.body.humidity) });
-                } else {
-                    LogError.error('Webservice error in Interior / Current: ' + err);
-                }
-            }.bind(this));
-    }
-
-    componentDidMount() {
-        this.refreshInteriorCurrent();
-        setInterval(this.refreshInteriorCurrent, this.props.refreshIntervall);
+    responseBodyToState(responseBody) {
+        return { items: this.getInteriorCurrentStructure(responseBody.temperature, responseBody.humidity) };
     }
 
     render() {
-        return (
-            <EnvironmentRow items={this.state.items} />
-        );
+        return <EnvironmentRow items={this.state.items} />;
     }
 }
-
-InteriorEnvironmentComponent.propTypes = {
-    refreshIntervall: React.PropTypes.number.isRequired,
-    serviceURL: React.PropTypes.string.isRequired
-};
 
 export default InteriorEnvironmentComponent;

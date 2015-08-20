@@ -22,7 +22,13 @@
                     "pointHighlightStroke": "#000"
                 },
                 "humidity": {
-
+                    "label": "Humidity",
+                    "fillColor": "rgba(151,187,205,0.0)",
+                    "strokeColor": "rgba(151,187,205,1)",
+                    "pointColor": "rgba(151,187,205,1)",
+                    "pointStrokeColor": "#fff",
+                    "pointHighlightFill": "#fff",
+                    "pointHighlightStroke": "rgba(151,187,205,1)"
                 }
             }
         }
