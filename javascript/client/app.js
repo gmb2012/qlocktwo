@@ -22,13 +22,14 @@ React.render(
 // Exterior component
 let extRows = [
     [
-        { labelClasses: [ 'wi', 'wi-thermometer', 'wi-2x' ], data: '24° C' },
-        { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-2x' ], data: '30%' }
+        { labelClasses: [ 'wi', 'wi-thermometer', 'wi-1_4x' ], data: '24° C' },
+        { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-1_4x' ], data: '30%' },
+        { labelClasses: [ 'wi', 'wi-windy', 'wi-1_2x' ], data: '104 km/h' }
     ],
     [
-        { labelClasses: [ 'wi', 'wi-sunrise', 'wi-1_2x' ], data: '07:00' },
-        { labelClasses: [ 'wi', 'wi-sunset', 'wi-1_2x' ], data: '21:50' },
-        { labelClasses: [ 'wi', 'wi-moon-waning-gibbous-2', 'wi-1_2x' ] }
+        { labelClasses: [ 'wi', 'wi-sunrise' ], data: '07:00' },
+        { labelClasses: [ 'wi', 'wi-sunset' ], data: '21:50' },
+        { labelClasses: [ 'wi', 'wi-moon-waning-gibbous-2', 'wi-1_6x' ] }
     ]
 ];
 

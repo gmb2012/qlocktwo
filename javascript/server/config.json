@@ -1,3 +1,4 @@
 {
-  "databaseURI": "mongodb://qlocktwo:qlocktwo@ds031903.mongolab.com:31903/qlocktwo"
+  "databaseURI": "mongodb://qlocktwo:qlocktwo@ds031903.mongolab.com:31903/qlocktwo",
+  "forecastURI": "https://api.forecast.io/forecast/c08436be07df1f8cd8f7f01d5d79701e/47.6767136,9.198814999999968"
 }

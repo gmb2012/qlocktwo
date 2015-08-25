@@ -2,6 +2,29 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
+https://github.com/gmb2012/qlocktwo/blob/master/javascript/client/components/Environment/EnvironmentRow.js#L7
+kurzschreibweise 
+```{this.props.data && <EnvironmentData data={ this.props.data } />}
+
+https://github.com/gmb2012/qlocktwo/blob/master/javascript/client/components/Environment/EnvironmentRow.js#L15
+—> array von was genau? strings? numbers?
+`React.PropTypes.arrayOf(React.PropTypes.number)
+
+beim testen von https://github.com/gmb2012/qlocktwo/blob/master/test/unit/client/components/Qlock/QlockRowSpec.js willst du eigentlich nicht die `Cell` mittesten. werden aber im moment mitgerendert. schau dir mal https://www.npmjs.com/package/react-shallow-testutils an
+npm: react-shallow-testutils
+Replacement for TestUtils when using React's shallow rendering (2KB)
+shallow rendering rendert nur eine ebene tief, kannst aber testen ob die `cells` mit drin sind
+z.B.
+```
+findAllWithType(QlockRow, ‘QlockCell’); expect
+
+- New version of weather icons
+- maybe use react-bootstrap
+- exterior compomnent
+- exterior webservice
+- forecast component
+- foreacast webservice
+- move foreacast webservice to own class, return a promise
 - webservice for calculating graph data
 - fix lint for var in server
 - use range and map

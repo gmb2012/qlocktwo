@@ -52,12 +52,17 @@ body{
     font-size: 1.2em;
 }
 
-.wi-2x {
-    font-size: 2em;
+.wi-1_4x {
+    font-size: 1.4em;
+}
+
+.wi-1_6x {
+    font-size: 1.6em;
 }
 
 .environment-data {
-    font-size: 1.2em;
+    font-size: 1.05em;
+    line-height: 2em;
 }
 
 .environment-label {

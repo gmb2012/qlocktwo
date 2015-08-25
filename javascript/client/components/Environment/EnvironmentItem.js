@@ -10,7 +10,7 @@ class EnvironmentItem extends React.Component {
 
         return (
             <div>
-                <div className='col-md-2 col-xs-2 environment-label'>
+                <div className='col-md-1 col-xs-1 environment-label'>
                     <i className={ this.props.labelClasses.join(' ') }></i>
                 </div>
                 {data}

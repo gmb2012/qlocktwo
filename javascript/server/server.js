@@ -6,6 +6,7 @@ const DatabaseConnection = require('./DatabaseConnection');
 const Config = require('./config.json');
 const InteriorCurrent = require('./Controller/InteriorCurrent');
 const InteriorHistory = require('./Controller/InteriorHistory');
+const ExteriorCurrent = require('./Controller/ExteriorCurrent');
 
 (new DatabaseConnection()).connect(Config.databaseURI);
 
@@ -25,6 +26,12 @@ app.get('/services/V1/interior/current', function (req, res) {
 // interior current
 app.get('/services/V1/interior/history', function (req, res) {
     (new InteriorHistory()).render(req, res);
+});
+
+// exterior current
+// interior current
+app.get('/services/V1/exterior/current', function (req, res) {
+    (new ExteriorCurrent()).render(req, res);
 });
 
 app.listen(3000);

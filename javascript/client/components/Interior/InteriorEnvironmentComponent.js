@@ -10,8 +10,8 @@ class InteriorEnvironmentComponent extends WebserviceComponent {
 
     getInteriorCurrentStructure(temperature, humidity) {
         return [
-            { labelClasses: [ 'wi', 'wi-thermometer', 'wi-2x' ], data: temperature + '° C' },
-            { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-2x' ], data: Math.round(humidity * 100) + '%' }
+            { labelClasses: [ 'wi', 'wi-thermometer', 'wi-1_4x' ], data: temperature + '° C' },
+            { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-1_4x' ], data: Math.round(humidity * 100) + '%' }
         ];
     }
 
