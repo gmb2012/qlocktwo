@@ -11,7 +11,7 @@ class EnvironmentCategory extends React.Component {
 }
 
 EnvironmentCategory.propTypes = {
-    iconClasses: React.PropTypes.array.isRequired
+    iconClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
 };
 
 export default EnvironmentCategory;

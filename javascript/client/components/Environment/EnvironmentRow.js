@@ -12,7 +12,7 @@ class EnvironmentRow extends React.Component {
 }
 
 EnvironmentRow.propTypes = {
-    items: React.PropTypes.array.isRequired
+    items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
 export default EnvironmentRow;

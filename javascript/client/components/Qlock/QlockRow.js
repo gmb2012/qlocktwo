@@ -14,7 +14,7 @@ class QlockRow extends React.Component {
 }
 
 QlockRow.propTypes = {
-    cells: React.PropTypes.array.isRequired
+    cells: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
 export default QlockRow;

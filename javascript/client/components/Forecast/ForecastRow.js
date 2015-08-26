@@ -12,7 +12,7 @@ class ForecastRow extends React.Component {
 }
 
 ForecastRow.propTypes = {
-    items: React.PropTypes.array.isRequired
+    items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
 export default ForecastRow;

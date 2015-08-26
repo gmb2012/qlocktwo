@@ -19,7 +19,7 @@ class ForecastComponent extends React.Component {
 }
 
 ForecastComponent.propTypes = {
-    iconClasses: React.PropTypes.array.isRequired,
+    iconClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     currentDate: React.PropTypes.string.isRequired,
     rows: React.PropTypes.array.isRequired
 };

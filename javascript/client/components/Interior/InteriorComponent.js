@@ -22,7 +22,7 @@ class InteriorComponent extends React.Component {
 }
 
 InteriorComponent.propTypes = {
-    iconClasses: React.PropTypes.array.isRequired,
+    iconClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     interiorEnvironmentComponent: React.PropTypes.object.isRequired,
     interiorChartComponent: React.PropTypes.object.isRequired
 };

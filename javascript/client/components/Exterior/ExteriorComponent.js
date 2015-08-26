@@ -16,8 +16,8 @@ class ExteriorComponent extends React.Component {
 }
 
 ExteriorComponent.propTypes = {
-    iconClasses: React.PropTypes.array.isRequired,
-    rows: React.PropTypes.array.isRequired
+    iconClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    rows: React.PropTypes.arrayOf(React.PropTypes.array).isRequired
 };
 
 export default ExteriorComponent;

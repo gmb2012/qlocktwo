@@ -22,7 +22,7 @@ class ForecastItem extends React.Component {
 
 ForecastItem.propTypes = {
     label: React.PropTypes.string.isRequired,
-    labelClasses: React.PropTypes.array.isRequired,
+    labelClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     temperature: React.PropTypes.string.isRequired,
     humidity: React.PropTypes.string.isRequired,
     wind: React.PropTypes.string.isRequired
