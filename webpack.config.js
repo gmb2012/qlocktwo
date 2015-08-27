@@ -1,5 +1,5 @@
 var path = require('path'),
-    targetPath = path.join(__dirname, 'build', 'assets'),
+    targetPath = path.join(__dirname, 'public', 'javascript'),
     webpack = require('webpack'),
     config;
 

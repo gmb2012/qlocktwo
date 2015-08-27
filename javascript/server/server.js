@@ -14,7 +14,6 @@ const ExteriorCurrent = require('./Controller/ExteriorCurrent');
 app.use(compression());
 
 // static routes
-app.use(express.static('build'));
 app.use(express.static('public'));
 
 // webservice endpoints
