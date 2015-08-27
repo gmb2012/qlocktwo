@@ -2,7 +2,6 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- maybe use react-bootstrap
 - forecast component
 - foreacast webservice
 - move forecast webservice to own class, return a promise

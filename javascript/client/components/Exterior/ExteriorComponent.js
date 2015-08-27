@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 import WebserviceComponent from '../WebserviceComponent';
 import EnvironmentRow from '../Environment/EnvironmentRow';
 import EnvironmentCategory from '../Environment/EnvironmentCategory';
@@ -54,12 +55,12 @@ class ExteriorComponent extends WebserviceComponent {
 
     render() {
         return (
-            <div className='row environment'>
+            <Row className='environment'>
                 <EnvironmentCategory iconClasses={this.props.iconClasses} />
-                <div className='col-md-10 col-xs-10'>
+                <Col md={10} xs={10}>
                     {this.state && (this.state.rows.map((items, index) => <EnvironmentRow items={items} key={index}/>))}
-                </div>
-            </div>
+                </Col>
+            </Row>
         );
     }
 }

@@ -1,13 +1,14 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 import EnvironmentData from './EnvironmentData';
 
 class EnvironmentItem extends React.Component {
     render() {
         return (
             <div>
-                <div className='col-md-1 col-xs-1 environment-label'>
+                <Col md={1} xs={1} className='environment-label'>
                     <i className={ this.props.labelClasses.join(' ') }></i>
-                </div>
+                </Col>
                 {this.props.data && <EnvironmentData data={ this.props.data } />}
             </div>
         );

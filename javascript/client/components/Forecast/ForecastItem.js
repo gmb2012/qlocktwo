@@ -1,21 +1,20 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 class ForecastItem extends React.Component {
     render() {
         return (
-            <div className='col-md-4 col-xs-4'>
-                <div className='row'>
-                    <div className='col-md-12 col-xs-12 forecast-label'>{this.props.label}</div>
-                </div>
-                <div className='row'>
-                    <div className='col-md-4 col-xs-4'><i className={ this.props.labelClasses.join(' ') }></i></div>
-                    <div className='col-md-8 col-xs-8 forecast-data'>
+            <Col md={4} xs={4}>
+                <Row><Col md={12} xs={12} className='forecast-label'>{this.props.label}</Col></Row>
+                <Row>
+                    <Col md={4} xs={4}><i className={ this.props.labelClasses.join(' ') }></i></Col>
+                    <Col md={8} xs={8} className='forecast-data'>
                         {this.props.temperature}<br />
                         <i className='wi wi-umbrella'></i>&nbsp;{this.props.humidity}<br />
                         <i className='wi wi-windy'></i>&nbsp;{this.props.wind}
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Col>
         );
     }
 }

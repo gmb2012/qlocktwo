@@ -1,12 +1,9 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 
 class EnvironmentData extends React.Component {
     render() {
-        return (
-            <div className='col-md-3 col-xs-3 environment-data'>
-                { this.props.data }
-            </div>
-        );
+        return (<Col md={3} xs={3} className='environment-data'>{this.props.data}</Col>);
     }
 }
 

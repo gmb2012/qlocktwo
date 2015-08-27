@@ -1,13 +1,10 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import ForecastItem from './ForecastItem';
 
 class ForecastRow extends React.Component {
     render() {
-        return (
-            <div className='row'>
-                {this.props.items.map((item, index) => <ForecastItem {...item} key={index} />)}
-            </div>
-        );
+        return (<Row>{this.props.items.map((item, index) => <ForecastItem {...item} key={index} />)}</Row>);
     }
 }
 

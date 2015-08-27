@@ -1,12 +1,9 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 
 class EnvironmentCategory extends React.Component {
     render() {
-        return (
-            <div className='col-md-2 col-xs-2'>
-                <i className={ this.props.iconClasses.join(' ') }></i>
-            </div>
-        );
+        return (<Col md={2} xs={2}><i className={ this.props.iconClasses.join(' ') }></i></Col>);
     }
 }
 

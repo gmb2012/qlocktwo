@@ -1,14 +1,15 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import QlockCell from './QlockCell';
 
 class QlockRow extends React.Component {
     render() {
         return (
-            <div className='row'>
+            <Row>
                 {this.props.cells.map(function (item, index) {
                     return <QlockCell {...item} key={index}/>;
                 })}
-            </div>
+            </Row>
         );
     }
 }

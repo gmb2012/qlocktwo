@@ -1,13 +1,10 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import EnvironmentItem from './EnvironmentItem';
 
 class EnvironmentRow extends React.Component {
     render() {
-        return (
-            <div className='row'>
-                {this.props.items.map((item, index) => <EnvironmentItem {...item} key={index} />)}
-            </div>
-        );
+        return (<Row>{this.props.items.map((item, index) => <EnvironmentItem {...item} key={index} />)}</Row>);
     }
 }
 

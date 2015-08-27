@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import { Line as LineChart } from 'react-chartjs';
 import WebserviceComponent from '../WebserviceComponent';
 import StringUtil from '../../lib/Util/StringUtil';
@@ -30,12 +31,10 @@ class InteriorChartComponent extends WebserviceComponent {
     }
 
     render() {
-        let chart = <div className='interior-line-chart'></div>;
-        if (this.state) {
-            chart = <LineChart data={this.state} options={this.props.chartOptions} className='interior-line-chart' />;
-        }
-
-        return chart;
+        return (this.state &&
+            (<Row>
+                <LineChart data={this.state} options={this.props.chartOptions} className='interior-line-chart' />
+            </Row>));
     }
 }
 

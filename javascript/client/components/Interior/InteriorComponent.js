@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 import InteriorEnvironmentComponent from './InteriorEnvironmentComponent';
 import InteriorChartComponent from './InteriorChartComponent';
 import EnvironmentCategory from '../Environment/EnvironmentCategory';
@@ -6,17 +7,13 @@ import EnvironmentCategory from '../Environment/EnvironmentCategory';
 class InteriorComponent extends React.Component {
     render() {
         return (
-            <div className='row environment'>
+            <Row className='environment'>
                 <EnvironmentCategory iconClasses={this.props.iconClasses} />
-                <div className='col-md-10 col-xs-10'>
+                <Col md={10} xs={10}>
                     <InteriorEnvironmentComponent {...this.props.interiorEnvironmentComponent} />
-
-                    <div className='row'>
-                        <InteriorChartComponent {...this.props.interiorChartComponent} />
-                    </div>
-
-                </div>
-            </div>
+                    <InteriorChartComponent {...this.props.interiorChartComponent} />
+                </Col>
+            </Row>
         );
     }
 }
