@@ -1,7 +1,7 @@
 const winston = require('winston');
 const superagent = require('superagent');
-const Config = require('../config.json');
 const UnitConversion = require('../UnitConversion');
+const ForecastService = require('../Service/ForecastService');
 
 function ExteriorCurrent() {
     const unitConversion = new UnitConversion();
@@ -10,8 +10,7 @@ function ExteriorCurrent() {
         res.setHeader('Content-Type', 'application/json');
 
         // super agent call
-        superagent
-            .get(Config.forecastURI)
+        ForecastService.getInstance().getResult()
             .end(function (wsErr, wsResponse) {
                 if (wsResponse && wsResponse.ok) {
                     res.send(JSON.stringify({

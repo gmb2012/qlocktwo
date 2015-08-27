@@ -2,10 +2,9 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- move forecast webservice to own class, return a promise
+- cache return data from forecast webservice for some time (5 mins)
 - foreacast webservice
 - forecast component
-- cache return data from forecast webservice for some time (5 mins)
 - Add example data to mongo db
 - webservice for calculating graph data
 - fix lint for var in server
