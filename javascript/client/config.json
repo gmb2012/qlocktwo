@@ -78,5 +78,35 @@
             "wi-moon-waning-crescent-5": { "from": 0.93, "to": 0.96},
             "wi-moon-waning-crescent-6": { "from": 0.97, "to": 0.99}
         }
+    },
+    "ForecastComponent" : {
+        "iconClasses": [ "fa", "fa-binoculars", "fa-1_4x" ],
+        "currentDate": "27.08.2015",
+        "rows": [
+            [
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "Morgens", "temperature": "24° / 36°", "humidity": "67%", "wind": "14 km/h" },
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "Mittags", "temperature": "24° / 36°", "humidity": "67%", "wind": "1 km/h" },
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "Abends", "temperature": "24° / 36°", "humidity": "67%", "wind": "104 km/h" }
+            ],
+            [
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "18.07.2015", "temperature": "24° / 36°", "humidity": "67%", "wind": "14 km/h" },
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "19.07.2015", "temperature": "24° / 36°", "humidity": "67%", "wind": "1 km/h" },
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "20.07.2015", "temperature": "-24° / -36°", "humidity": "67%", "wind": "104 km/h" }
+            ],
+            [
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "21.07.2015", "temperature": "24° / 36°", "humidity": "67%", "wind": "14 km/h" },
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "22.07.2015", "temperature": "24° / 36°", "humidity": "67%", "wind": "1 km/h" },
+                { "labelClasses": [ "wi", "wi-day-rain-mix", "wi-1_2x" ],
+                    "label": "23.07.2015", "temperature": "24° / 36°", "humidity": "67%", "wind": "104 km/h" }
+            ]
+        ]
     }
 }
