@@ -1,4 +1,7 @@
 {
+    "QlockComponent": {
+        "refreshIntervall": 1000
+    },
     "InteriorComponent": {
         "iconClasses": [ "fa", "fa-home", "fa-2x" ],
         "interiorEnvironmentComponent": {
@@ -31,6 +34,49 @@
                     "pointHighlightStroke": "rgba(151,187,205,1)"
                 }
             }
+        }
+    },
+    "ExteriorComponent": {
+        "iconClasses": [ "fa", "fa-tree", "fa-2x" ],
+        "serviceURL": "/services/V1/exterior/current",
+        "refreshIntervall": 300000,
+        "labelClasses": {
+            "temperature": [ "wi", "wi-thermometer", "wi-fw" ],
+            "humidity": [ "wi", "wi-humidity", "wi-fw" ],
+            "wind": [ "wi", "wi-windy", "wi-fw" ],
+            "sunrise": [ "wi", "wi-sunrise", "wi-fw" ],
+            "sunset": [ "wi", "wi-sunset", "wi-fw" ],
+            "moon": [ "wi", "wi-1_6x" ]
+        },
+        "moonClasses": {
+            "wi-moon-new": { "from": 0.00, "to": 0.00},
+            "wi-moon-waxing-cresent-1": { "from": 0.01, "to": 0.04},
+            "wi-moon-waxing-cresent-2": { "from": 0.05, "to": 0.08},
+            "wi-moon-waxing-cresent-3": { "from": 0.09, "to": 0.12},
+            "wi-moon-waxing-cresent-4": { "from": 0.13, "to": 0.16},
+            "wi-moon-waxing-cresent-5": { "from": 0.17, "to": 0.20},
+            "wi-moon-waxing-cresent-6": { "from": 0.21, "to": 0.24},
+            "wi-moon-first-quarter": { "from": 0.25, "to": 0.25},
+            "wi-moon-waxing-gibbous-1": { "from": 0.26, "to": 0.30},
+            "wi-moon-waxing-gibbous-2": { "from": 0.31, "to": 0.34},
+            "wi-moon-waxing-gibbous-3": { "from": 0.35, "to": 0.38},
+            "wi-moon-waxing-gibbous-4": { "from": 0.39, "to": 0.42},
+            "wi-moon-waxing-gibbous-5": { "from": 0.43, "to": 0.46},
+            "wi-moon-waxing-gibbous-6": { "from": 0.47, "to": 0.49},
+            "wi-moon-full": { "from": 0.50, "to": 0.50},
+            "wi-moon-waning-gibbous-1": { "from": 0.51, "to": 0.54},
+            "wi-moon-waning-gibbous-2": { "from": 0.55, "to": 0.58},
+            "wi-moon-waning-gibbous-3": { "from": 0.59, "to": 0.62},
+            "wi-moon-waning-gibbous-4": { "from": 0.63, "to": 0.66},
+            "wi-moon-waning-gibbous-5": { "from": 0.67, "to": 0.70},
+            "wi-moon-waning-gibbous-6": { "from": 0.71, "to": 0.74},
+            "wi-moon-third-quarter": { "from": 0.75, "to": 0.75},
+            "wi-moon-waning-crescent-1": { "from": 0.76, "to": 0.80},
+            "wi-moon-waning-crescent-2": { "from": 0.81, "to": 0.84},
+            "wi-moon-waning-crescent-3": { "from": 0.85, "to": 0.88},
+            "wi-moon-waning-crescent-4": { "from": 0.89, "to": 0.92},
+            "wi-moon-waning-crescent-5": { "from": 0.93, "to": 0.96},
+            "wi-moon-waning-crescent-6": { "from": 0.97, "to": 0.99}
         }
     }
 }

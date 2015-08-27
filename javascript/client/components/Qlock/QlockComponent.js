@@ -2,7 +2,7 @@ import React from 'react';
 import Qlock from '../../lib/Qlock/Qlock';
 import QlockRow from './QlockRow';
 
-class QlockBlock extends React.Component {
+class QlockComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = { time: [], minAndSec: [] };
@@ -31,8 +31,8 @@ class QlockBlock extends React.Component {
     }
 }
 
-QlockBlock.propTypes = {
+QlockComponent.propTypes = {
     refreshIntervall: React.PropTypes.number.isRequired
 };
 
-export default QlockBlock;
+export default QlockComponent;

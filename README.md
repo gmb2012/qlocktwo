@@ -2,12 +2,12 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- exterior compomnent
-- New version of weather icons
 - maybe use react-bootstrap
 - forecast component
 - foreacast webservice
 - move forecast webservice to own class, return a promise
+- cache return data from forecast webservice for some time (5 mins)
+- Add example data to mongo db
 - webservice for calculating graph data
 - fix lint for var in server
 - use range and map
@@ -19,8 +19,6 @@ A QlockTwo combined with displaying of weather data from node.js webservices bas
 - more views => stuff for stats => averages, monthly reporting, ....
 - check for new font
 - flexbox to remove fixed height for the border => http://t3n.de/news/css-box-modell-alternative-529712/ & http://flexbox.io/#/
-- Wind speed miles per hour to kmh
-- Moonphase from current
 - Save also external temperature and humidity
 - last updated information in console or in gui
 - beim testen von https://github.com/gmb2012/qlocktwo/blob/master/test/unit/client/components/Qlock/QlockRowSpec.js willst du eigentlich nicht die `Cell` mittesten. werden aber im moment mitgerendert. schau dir mal https://www.npmjs.com/package/react-shallow-testutils an

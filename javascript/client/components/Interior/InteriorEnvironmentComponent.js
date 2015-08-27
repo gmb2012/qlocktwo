@@ -3,15 +3,10 @@ import WebserviceComponent from '../WebserviceComponent';
 import EnvironmentRow from '../Environment/EnvironmentRow';
 
 class InteriorEnvironmentComponent extends WebserviceComponent {
-    constructor(props) {
-        super(props);
-        this.state = { items: this.getInteriorCurrentStructure(0, 0) };
-    }
-
     getInteriorCurrentStructure(temperature, humidity) {
         return [
-            { labelClasses: [ 'wi', 'wi-thermometer', 'wi-1_4x' ], data: temperature + '° C' },
-            { labelClasses: [ 'wi', 'wi-sprinkles', 'wi-1_4x' ], data: Math.round(humidity * 100) + '%' }
+            { labelClasses: [ 'wi', 'wi-thermometer', 'wi-fw' ], data: temperature + '° C' },
+            { labelClasses: [ 'wi', 'wi-humidity', 'wi-fw' ], data: Math.round(humidity * 100) + ' %' }
         ];
     }
 
@@ -20,7 +15,7 @@ class InteriorEnvironmentComponent extends WebserviceComponent {
     }
 
     render() {
-        return <EnvironmentRow items={this.state.items} />;
+        return (this.state && <EnvironmentRow items={this.state.items} />);
     }
 }
 
