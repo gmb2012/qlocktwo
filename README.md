@@ -2,7 +2,6 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- cache return data from forecast webservice for some time (5 mins)
 - foreacast webservice
 - forecast component
 - Add example data to mongo db

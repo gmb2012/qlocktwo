@@ -10,21 +10,19 @@ function ExteriorCurrent() {
         res.setHeader('Content-Type', 'application/json');
 
         // super agent call
-        ForecastService.getInstance().getResult()
-            .end(function (wsErr, wsResponse) {
-                if (wsResponse && wsResponse.ok) {
-                    res.send(JSON.stringify({
-                        temperature:
-                            Math.round(unitConversion.fahrenheitToCelsius(wsResponse.body.currently.temperature)),
-                        humidity: wsResponse.body.currently.humidity,
-                        wind: Math.round(unitConversion.milesToKilometer(wsResponse.body.currently.windSpeed)),
-                        sunrise: wsResponse.body.daily.data[0].sunriseTime * 1000,
-                        sunset: wsResponse.body.daily.data[0].sunsetTime * 1000,
-                        moon: wsResponse.body.daily.data[0].moonPhase
-                    }));
-                } else {
-                    winston.info('Foreacast service error : ' + wsErr);
-                }
+        ForecastService.getInstance().getResult().then(
+            function (body) {
+                res.send(JSON.stringify({
+                    temperature: Math.round(unitConversion.fahrenheitToCelsius(body.currently.temperature)),
+                    humidity: body.currently.humidity,
+                    wind: Math.round(unitConversion.milesToKilometer(body.currently.windSpeed)),
+                    sunrise: body.daily.data[0].sunriseTime * 1000,
+                    sunset: body.daily.data[0].sunsetTime * 1000,
+                    moon: body.daily.data[0].moonPhase
+                }));
+            },
+            function (err) {
+                winston.info('Foreacast service error : ' + err);
             });
     };
 }
