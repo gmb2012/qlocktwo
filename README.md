@@ -7,8 +7,8 @@ A QlockTwo combined with displaying of weather data from node.js webservices bas
 - Add example data to mongo db
 - webservice for calculating graph data
 - fix lint for var in server
+- migrate to babel?!
 - use range and map
-- webservices with super agent => incl. error if external webservice is not reachable (timeout)
 - Unit Tests for react components
 - Unit tests for webservices
 - Documentation

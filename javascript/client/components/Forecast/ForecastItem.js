@@ -15,7 +15,7 @@ class ForecastItem extends React.Component {
                          className={classNames({ 'forecast-data-temperature': true,
                          'forecast-data-temperature-from-to': (this.props.temperature.indexOf(' ') !== -1) })}>
                         {this.props.temperature.split(' ').map((item, index) =>
-                            <Row className='text-center'>{item}</Row>)}
+                            <Row className='text-center' key={index}>{item}</Row>)}
                     </Col>
                 </Row>
                 <Row>

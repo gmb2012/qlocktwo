@@ -29,12 +29,12 @@ class WebserviceComponent extends React.Component {
 
     componentDidMount() {
         this.refresh();
-        setInterval(this.refresh, this.props.refreshIntervall);
+        setInterval(this.refresh, this.props.refreshInterval);
     }
 }
 
 WebserviceComponent.propTypes = {
-    refreshIntervall: React.PropTypes.number.isRequired,
+    refreshInterval: React.PropTypes.number.isRequired,
     serviceURL: React.PropTypes.string.isRequired
 };
 

@@ -38,9 +38,9 @@ body{
     text-shadow: 0 0 20px #999999;
 }
 
-/* ENVIRONMENT & FORECAST DATA */
+/* ENVIRONMENT */
 .environment {
-    margin-bottom: 2em;
+    margin-bottom: 1.1em;
     color: #666666;
 }
 
@@ -60,6 +60,11 @@ body{
     font-size: 1.6em;
 }
 
+.wi-0_8x {
+    font-size: 0.8em;
+    line-height: 0.8em;
+}
+
 .environment-data {
     font-size: 1.05em;
     line-height: 2em;
@@ -69,11 +74,42 @@ body{
     line-height: 40px;
 }
 
-.forecast-data {
-    font-size: 0.8em;
+/* INTERIOR */
+.interior-line-chart {
+    height: 80px;
+    width: 100%;
 }
 
-.interior-line-chart {
-    height: 130px;
-    width: 100%;
+/* FORECAST */
+.forecast-row {
+    margin-bottom: 1em;
+}
+
+.forecast-label {
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.forecast-data-temperature {
+    font-size: 1.2em;
+}
+
+.forecast-data-temperature-from-to {
+    font-size: 1em;
+    line-height: 1em;
+}
+
+.forecast-data-icon {
+    padding-bottom: 0.4em;
+}
+
+.forecast-data {
+    font-size: 0.7em;
+    line-height: 2em;
+}
+
+/* DATE */
+.date {
+    font-size: 1.4em;
+    margin-bottom: 0.8em;
 }

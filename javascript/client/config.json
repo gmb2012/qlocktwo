@@ -1,16 +1,19 @@
 {
     "QlockComponent": {
-        "refreshIntervall": 1000
+        "refreshInterval": 1000
+    },
+    "DateComponent": {
+        "refreshInterval": 1000
     },
     "InteriorComponent": {
         "iconClasses": [ "fa", "fa-home", "fa-2x" ],
         "interiorEnvironmentComponent": {
             "serviceURL": "/services/V1/interior/current",
-            "refreshIntervall": 300000
+            "refreshInterval": 300000
         },
         "interiorChartComponent": {
             "serviceURL": "/services/V1/interior/history",
-            "refreshIntervall": 600000,
+            "refreshInterval": 600000,
             "chartOptions": {
                 "pointDot": false
             },
@@ -39,7 +42,7 @@
     "ExteriorComponent": {
         "iconClasses": [ "fa", "fa-tree", "fa-2x" ],
         "serviceURL": "/services/V1/exterior/current",
-        "refreshIntervall": 300000,
+        "refreshInterval": 300000,
         "labelClasses": {
             "temperature": [ "wi", "wi-thermometer", "wi-fw" ],
             "humidity": [ "wi", "wi-humidity", "wi-fw" ],

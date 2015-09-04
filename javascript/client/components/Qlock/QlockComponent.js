@@ -18,7 +18,7 @@ class QlockComponent extends React.Component {
 
     componentDidMount() {
         this.refreshClock();
-        setInterval(this.refreshClock, this.props.refreshIntervall);
+        setInterval(this.refreshClock, this.props.refreshInterval);
     }
 
     render() {
@@ -32,7 +32,7 @@ class QlockComponent extends React.Component {
 }
 
 QlockComponent.propTypes = {
-    refreshIntervall: React.PropTypes.number.isRequired
+    refreshInterval: React.PropTypes.number.isRequired
 };
 
 export default QlockComponent;
