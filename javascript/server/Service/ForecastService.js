@@ -1,6 +1,6 @@
 const superagent = require('superagent');
-const Config = require('../config.json');
 const Promise = require('promise');
+const Config = require('../config.json');
 
 var instance;
 
@@ -9,7 +9,6 @@ function ForecastService() {
     var callTime;
 
     function callService() {
-        console.log("ws call");
         return new Promise(function (resolve, reject) {
             superagent.get(Config.forecastURI).end(function (err, res) {
                 if (err) {
@@ -32,7 +31,7 @@ function ForecastService() {
 }
 
 module.exports = {
-    getInstance: function() {
+    getInstance: function () {
         if (!instance) {
             instance = new ForecastService();
         }

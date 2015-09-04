@@ -7,6 +7,7 @@ const Config = require('./config.json');
 const InteriorCurrent = require('./Controller/InteriorCurrent');
 const InteriorHistory = require('./Controller/InteriorHistory');
 const ExteriorCurrent = require('./Controller/ExteriorCurrent');
+const Forecast = require('./Controller/Forecast');
 
 (new DatabaseConnection()).connect(Config.databaseURI);
 
@@ -28,9 +29,13 @@ app.get('/services/V1/interior/history', function (req, res) {
 });
 
 // exterior current
-// interior current
 app.get('/services/V1/exterior/current', function (req, res) {
     (new ExteriorCurrent()).render(req, res);
+});
+
+// exterior current
+app.get('/services/V1/forecast', function (req, res) {
+    (new Forecast()).render(req, res);
 });
 
 app.listen(3000);

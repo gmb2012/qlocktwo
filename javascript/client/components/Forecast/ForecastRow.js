@@ -4,7 +4,7 @@ import ForecastItem from './ForecastItem';
 
 class ForecastRow extends React.Component {
     render() {
-        return (<Row>{this.props.items.map((item, index) => <ForecastItem {...item} key={index} />)}</Row>);
+        return (<Row className='forecast-row'>{this.props.items.map((item, index) => <ForecastItem {...item} key={index} />)}</Row>);
     }
 }
 
