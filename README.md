@@ -2,9 +2,7 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- foreacast webservice 
-- auftrennen in daily und hourly => zwei endpunkte & 2 komponenten
-- forecast component
+- forecast components
 - Add example data to mongo db
 - webservice for calculating graph data
 - fix lint for var in server

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import EnvironmentCategory from '../Environment/EnvironmentCategory';
-import ForecastRow from './ForecastRow';
+import ForecastHourlyComponent from './ForecastHourlyComponent';
+import ForecastDailyComponent from './ForecastDailyComponent';
 
 class ForecastComponent extends React.Component {
     render() {
@@ -9,8 +10,8 @@ class ForecastComponent extends React.Component {
             <Row className='environment'>
                 <EnvironmentCategory iconClasses={this.props.iconClasses} />
                 <Col md={10} xs={10}>
-                    {this.props.forecast.hourly.map((items, index) => <ForecastRow items={items} key={index}/>)}
-                    {this.props.forecast.daily.map((items, index) => <ForecastRow items={items} key={index}/>)}
+                    <ForecastHourlyComponent rows={this.props.forecast.hourly} />
+                    <ForecastDailyComponent rows={this.props.forecast.daily} />
                 </Col>
             </Row>
         );
