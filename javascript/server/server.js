@@ -7,7 +7,8 @@ const Config = require('./config.json');
 const InteriorCurrent = require('./Controller/InteriorCurrent');
 const InteriorHistory = require('./Controller/InteriorHistory');
 const ExteriorCurrent = require('./Controller/ExteriorCurrent');
-const Forecast = require('./Controller/Forecast');
+const ForecastHourly = require('./Controller/ForecastHourly');
+const ForecastDaily = require('./Controller/ForecastDaily');
 
 (new DatabaseConnection()).connect(Config.databaseURI);
 
@@ -18,24 +19,24 @@ app.use(compression());
 app.use(express.static('public'));
 
 // webservice endpoints
-// interior current
 app.get('/services/V1/interior/current', function (req, res) {
     (new InteriorCurrent()).render(req, res);
 });
 
-// interior current
 app.get('/services/V1/interior/history', function (req, res) {
     (new InteriorHistory()).render(req, res);
 });
 
-// exterior current
 app.get('/services/V1/exterior/current', function (req, res) {
     (new ExteriorCurrent()).render(req, res);
 });
 
-// exterior current
-app.get('/services/V1/forecast', function (req, res) {
-    (new Forecast()).render(req, res);
+app.get('/services/V1/forecast/hourly', function (req, res) {
+    (new ForecastHourly()).render(req, res);
+});
+
+app.get('/services/V1/forecast/daily', function (req, res) {
+    (new ForecastDaily()).render(req, res);
 });
 
 app.listen(3000);
