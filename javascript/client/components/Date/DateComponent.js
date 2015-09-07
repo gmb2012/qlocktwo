@@ -13,7 +13,7 @@ class DateComponent extends React.Component {
 
     refreshDate() {
         let date = new Date();
-        this.setState({ date: StringUtil.zeroPad(date.getDay().toString(), 2) + '.' +
+        this.setState({ date: StringUtil.zeroPad(date.getDate().toString(), 2) + '.' +
             StringUtil.zeroPad((date.getMonth() + 1).toString(), 2) + '.' + date.getFullYear().toString() });
     }
 
