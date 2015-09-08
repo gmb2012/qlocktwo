@@ -20,8 +20,8 @@ class ForecastItem extends React.Component {
                 </Row>
                 <Row>
                     <Col md={3} xs={3}><i className='wi wi-umbrella wi-0_8x'></i></Col>
-                    <Col md={3} xs={3} className='forecast-data'>{this.props.humidity}</Col>
-                    <Col md={3} xs={3}><i className='wi wi-windy wi-0_8x'></i></Col>
+                    <Col md={3} xs={3} className='forecast-data'>{this.props.precipitationProbability}</Col>
+                    <Col md={3} xs={3}><i className='wi wi-strong-wind wi-0_8x'></i></Col>
                     <Col md={3} xs={3} className='forecast-data'>{this.props.wind}</Col>
                 </Row>
             </Col>
@@ -33,7 +33,7 @@ ForecastItem.propTypes = {
     label: React.PropTypes.string.isRequired,
     labelClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     temperature: React.PropTypes.string.isRequired,
-    humidity: React.PropTypes.string.isRequired,
+    precipitationProbability: React.PropTypes.string.isRequired,
     wind: React.PropTypes.string.isRequired
 };
 

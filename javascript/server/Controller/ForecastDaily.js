@@ -8,7 +8,7 @@ function ForecastDaily() {
         returnValue[item.time * 1000] = {
             temperature: [ Math.round(item.temperatureMin), Math.round(item.temperatureMax) ],
             icon: item.icon,
-            precipationProbability: item.precipProbability,
+            precipitationProbability: item.precipProbability,
             wind: Math.round(item.windSpeed * 3.6)
         };
 
@@ -16,7 +16,7 @@ function ForecastDaily() {
     }
 
     function transform(data) {
-        return [ data[0], data[1], data[2] ].map(transformItem);
+        return [ data[1], data[2], data[3] ].map(transformItem);
     }
 
     this.render = function (req, res) {

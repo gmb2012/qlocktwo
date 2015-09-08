@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import StringUtil from '../../lib/Util/StringUtil';
+import DateUtil from '../../lib/Util/DateUtil.js';
 
 class DateComponent extends React.Component {
     constructor(props) {
@@ -12,9 +12,7 @@ class DateComponent extends React.Component {
     }
 
     refreshDate() {
-        let date = new Date();
-        this.setState({ date: StringUtil.zeroPad(date.getDate().toString(), 2) + '.' +
-            StringUtil.zeroPad((date.getMonth() + 1).toString(), 2) + '.' + date.getFullYear().toString() });
+        this.setState({ date: DateUtil.formatGermanDate(new Date()) });
     }
 
     componentDidMount() {

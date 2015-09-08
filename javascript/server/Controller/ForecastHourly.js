@@ -8,7 +8,7 @@ function ForecastHourly() {
         returnValue[item.time * 1000] = {
             temperature: Math.round(item.temperature),
             icon: item.icon,
-            precipationProbability: item.precipProbability,
+            precipitationProbability: item.precipProbability,
             wind: Math.round(item.windSpeed * 3.6)
         };
 
@@ -16,7 +16,7 @@ function ForecastHourly() {
     }
 
     function transform(data) {
-        return [ data[0], data[3], data[7], data[11], data[15], data[19] ].map(transformItem);
+        return [ data[1], data[4], data[8], data[12], data[16], data[20] ].map(transformItem);
     }
 
     this.render = function (req, res) {

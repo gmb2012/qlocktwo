@@ -2,8 +2,7 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
-- forecast components
-- Add example data to mongo db
+- Add example data to mongo db => create as node script
 - webservice for calculating graph data
 - fix lint for var in server
 - migrate to babel?!

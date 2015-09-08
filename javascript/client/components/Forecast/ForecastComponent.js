@@ -10,8 +10,10 @@ class ForecastComponent extends React.Component {
             <Row className='environment'>
                 <EnvironmentCategory iconClasses={this.props.iconClasses} />
                 <Col md={10} xs={10}>
-                    <ForecastHourlyComponent rows={this.props.forecast.hourly} />
-                    <ForecastDailyComponent rows={this.props.forecast.daily} />
+                    <ForecastHourlyComponent
+                        {...this.props.forecastHourlyComponent} weatherIcons={this.props.weatherIcons} />
+                    <ForecastDailyComponent
+                        {...this.props.forecastDailyComponent} weatherIcons={this.props.weatherIcons} />
                 </Col>
             </Row>
         );
@@ -20,8 +22,9 @@ class ForecastComponent extends React.Component {
 
 ForecastComponent.propTypes = {
     iconClasses: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    forecast:
-        React.PropTypes.objectOf(React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.object))).isRequired
+    forecastHourlyComponent: React.PropTypes.object.isRequired,
+    forecastDailyComponent: React.PropTypes.object.isRequired,
+    weatherIcons: React.PropTypes.objectOf(React.PropTypes.string).isRequired
 };
 
 export default ForecastComponent;
