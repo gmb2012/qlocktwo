@@ -2,6 +2,8 @@
 A QlockTwo combined with displaying of weather data from node.js webservices based on react.js
 
 # TODO
+- Migrate to node.js 4 and ecma script 6
+- More beautiful display of date
 - Add example data to mongo db => create as node script
 - webservice for calculating graph data
 - fix lint for var in server
